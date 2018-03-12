@@ -105,11 +105,13 @@ span,div {
 	height: 60px;
 	width: 180px;
 	width: auto;
+	line-height: 70px;
 }
 
 .header .logo img {
 	height: 60px;
 	width: 180px;
+	
 }
 
 
@@ -255,27 +257,36 @@ span,div {
 
 .page_nav_box {
 	width: 100%;
-	margin: 20px 0 30px;
+	margin: 20px 0 0px;
 }
 
 .page_nav_box .page_pos {
-	text-align: right;
-	font-size: 14px;
+	text-align: left;
+	font-size: 8px;
 	color: #646464;
-	line-height: 46px;
+	line-height: 10px;
+}
+
+.page_nav_box .page_pos1 {
+	text-align: right;
+	font-size: 8px;
+	color: #646464;
+	line-height: 10px;
+	font-weight: bold;
 }
 
 .page_nav_box .page_pos span {
-	padding-left: 18px;
-	background: url(../images/pos.png) no-repeat left center;
+	padding-left: 30px;
+	margin-left: 10px;
+	background: url(../images/home.png) no-repeat left center;
 }
 
 .page_nav_box .page_pos a {
-	font-size: 14px;
+	font-size: 8px;
 	color: #646464;
 }
 
-.page_nav_box .page_pos a:last-child {
+.page_nav_box .page_pos a{
 	font-weight: bold;
 }
 
@@ -354,6 +365,13 @@ span,div {
 	position: relative;
 	width: 100%;
 	padding-bottom: 24%;
+}
+
+.slideBox .bd1 a {
+	display: block;
+	position: relative;
+	width: 100%;
+	padding-bottom: 40%;
 }
 
 .slideBox .bd a img {
@@ -972,6 +990,8 @@ span,div {
 	.page_nav_box .page_pos {
 		text-align: left;
 	}
+	
+	
 	.page_left,
 	.page_right {
 		padding: 0;
@@ -1014,3 +1034,24 @@ span,div {
 		padding-right: 0;
 	}*/
 }
+
+
+.about1{
+	margin-bottom: 10px;
+}
+#aboutShow2 .text1{
+	background-color: #f8f8f8;
+	height: 60px;
+	line-height: 60px;
+}
+#show2Table{
+	 
+}
+
+#show2Table tr{
+	 background-color: #f1eff1;
+	  display:block; /*将tr设置为块体元素*/
+    margin:10px 0;
+}
+
+ 
