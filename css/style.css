@@ -328,7 +328,7 @@ span,div {
 }
 
 .page_content {
-	padding: 20px;
+	/*padding: 20px;*/
 	background-color: #FFFFFF;
 }
 
@@ -954,7 +954,7 @@ span,div {
 
 .message_form .form-group .form-control {
 	border: 1px dashed #b6b6b6;
-	background-color: #EEEEEE;
+	background-color: #F8F8F8;
 }
 
 .message_form .form-group .form-control.false {
@@ -973,7 +973,7 @@ span,div {
 	padding: 5px 30px;
 	font-size: 16px;
 	color: #FFFFFF;
-	background-color: #EA541A;
+	background-color: #46B8DA;
 	cursor: pointer;
 }
 
@@ -1050,8 +1050,18 @@ span,div {
 
 #show2Table tr{
 	 background-color: #f1eff1;
-	  display:block; /*将tr设置为块体元素*/
+	 display:block; /*将tr设置为块体元素*/
     margin:10px 0;
 }
 
+#new2Table tr{
+	
+	border-top: 2px solid #f1eff1;
+	display:block; /*将tr设置为块体元素*/
+    margin:15px 0;
+}
+.col-sm-6{
+	padding-right: 5px;
+	padding-left: 5px;
+}
  
