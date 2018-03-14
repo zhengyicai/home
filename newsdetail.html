@@ -9,106 +9,277 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/global.css" />
 		<link rel="stylesheet" href="css/style.css" />
+		
+<style type="text/css">
+
+
+
+.tabslist .find_nav_list {
+    position: absolute;
+    left: 0;
+}
+.tabslist .find_nav_list ul {
+    position: relative;
+    white-space: nowrap;
+    font-size: 0;
+}
+.tabslist .find_nav_list ul li {
+    display: inline-block;
+    padding: 0;
+	margin:0 0px;
+	margin-right: 20px;
+}
+.tabslist .find_nav_list ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 20px;
+    font-size: 13px;
+    text-align: center;
+    color: #666;
+}
+.tabslist .find_nav_cur a {
+    color: #48a5f4 !important;
+    text-decoration:none;
+    text-align:left;
+}
+
+.tabslist .sideline {
+    display: block;
+    position: absolute;
+    border: 0;
+    height: 2px;
+    background-color: #48a5f4;
+    left: 0;
+    top: 50px;
+    pointer-events: none;
+}
+
+.tabslist .sideline1 {
+    display: block;
+    position: absolute;
+    border: 0;
+    height: 2px;
+    
+    left: 0;
+    top: 35px;
+    pointer-events: none;
+}
+.tabslist .li_list{ min-height:800px; font-size:35px; line-height:800px; color:#fff; text-align:left;}
+.tabslist .swipe{ padding:50px 0 0 0px;margin-left: -15px;}
+
+/*风琴*/ 
+.box1{ width:  100%; height: 450px;  overflow: hidden;}
+		.box1 div{ width: 20%;  float: left; transition: all 1s;}
+		.box1 img{width: 500px;}
+		.box1:hover div{ width: 20%; }
+		.box1 div:hover{ width: 40%; }
+
+
+
+</style>
 	</head>
-	<body class="bg01">
-		<div class="mobile_header hidden-md hidden-lg">
+	
+	<body class="bg01" >
+		
+<div class="mobile_header hidden-md hidden-lg">
 			<a href="index.html" class="logo">
 				<img src="upload/logo.png"/>
 			</a>
 			<span class="menu_icon"></span>
 			<ul class="menu">
-				<li class="on"><a href="index.html">首页</a></li>
+				<li><a href="index.html">首页</a></li>
 	        	<li><a href="about.html">关于我们</a></li>
-	        	<li><a href="cplist.html">产品中心</a></li>
-	        	<li><a href="newslist.html">新闻中心</a></li>
+	        	<li ><a href="cplist.html">产品中心</a></li>
+	        	<li class="on"><a href="newslist.html">新闻中心</a></li>
 	        	<li><a href="contact.html">联系我们</a></li>
-	        	<li><a href="message.html">在线留言</a></li>
+	        	<li><a href="message.html">投诉反馈</a></li>
 			</ul>
 		</div>
-		<div class="header hidden-xs hidden-sm clearfix">
+		<div class="header hidden-xs hidden-sm clearfix" >
 			<div class="container">				
-				<a href="index.html" class="logo">
+				<a href="index.html" class="logo" >
 					<img src="upload/logo.png"/>
 				</a>
-				<div class="nav">
+				<div class="nav" style=" border-right: 1px solid #B6B6B6 ;">
 			    	<ul>
-			        	<li class="on"><a href="index.html">首页</a></li>
-	        	<li><a href="about.html">关于我们</a></li>
-	        	<li><a href="cplist.html">产品中心</a></li>
-	        	<li><a href="newslist.html">新闻中心</a></li>
-	        	<li><a href="contact.html">联系我们</a></li>
-	        	<li><a href="message.html">在线留言</a></li>
+			    		<li><a>&nbsp;</a></li>
+			    		<li><a>&nbsp;</a></li>
+			        	<li ><a href="index.html">首页</a></li>
+			        	<li ><a href="about.html">优速国际</a></li>
+			        	<li class="on"><a href="newslist.html">新闻中心</a></li>
+			        	<li><a href="cplist.html">产品中心</a></li>
+			        	
+			        	<li><a href="contact.html">联系我们</a></li>
+			        	<li><a href="message.html">投诉反馈</a></li>
+			        	
+			        	
 			      	</ul>
 			    </div>
+			    
+			    <a  class="search" >
+					<img src="images/search.png"/>
+				</a>
+				<span class="language" >
+					中/EN
+				</span>
+			    
 			</div>
 		</div>
-		<div class="page_top">
-			<a href="#">
-				<img src="upload/banner-sm.png"/>
-			</a>
-		</div>
-		<div class="page_nav_box">
-			<div class="container">
-				<div class="row">
-					<div class="page_pos col-lg-12 text-center">
-						<span>当前位置：</span>
-						<a href="#">首页</a>
-						&gt;
-						<a href="#">新闻中心</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="page_left col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="sub_nav">						
-					<ul>
-						<li class="on"><a href="#">公司新闻</a></li>
-						<li><a href="#">行业信息</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="page_right col-lg-9 col-md-9 col-sm-9 col-xs-12">
-				<div class="page_content">
-					<div class="article">
-						<div class="article_hd">
-							<h1>新闻标题</h1>
-							<h6>
-								<span>浏览次数：123</span>
-								<span>发布日期：2016-02-19</span>
-							</h6>
+		<div class="content_bd" style="overflow: hidden;">
+			<img src="images/banner2.jpg" style="height: 100px; width: 100%;">
+			<div class="page_nav_box" style="width:100%;border-bottom: 1px solid #eee;" >
+				<div class="container" style="height: 60px;">
+					<div class="row">
+						<div class="page_pos col-lg-10  col-sm-8 text-center">
+							<span></span>
+							<a href="#">优速国际</a>
+							&gt;
+							<a href="#" id="aboutDetail">集团新闻</a>
 						</div>
-						<div class="article_bd">
-							<img src="upload/pic08.jpg"/>
-							新闻内容
-						</div>
-					</div>
-					<div class="pagination2 row">
-						<div class="prev col-lg-6 col-md-12 col-sm-12 clo-xs-12">
-							<a href="#">上一篇：XXXXXXXXXX</a>
-						</div>
-						<div class="next col-lg-6 col-md-12 col-sm-12 clo-xs-12">
-							<a href="#">上一篇：XXXXXXXXXX</a>
+						<div class="col-lg-2 col-sm-4 page_pos1"  >
+							<ul >
+							
+								<li class="tabslist" style="float: right;"> 
+									
+										        <div class="find_nav_list text-right"  >
+										            <ul >
+										        
+										                <li><a href="newslist.html" class="active" id="aboutOne" >集团新闻</a></li>
+										                <li><a href="newslist.html" id="aboutTwo">地方动态</a></li>
+										                <li><a href="newslist.html" id="aboutThree">媒体报道</a></li>
+										                
+										                <li class="sideline"></li>
+										            </ul>
+										
+										        </div>
+	
+								</li>
+								
+							</ul>
+									
 						</div>
 					</div>
 				</div>
 			</div>
+			<div class="container" id="about1" >
+					<div class="col-lg-9  col-sm-8" style="border-right: 1px solid #eee;padding-top: 15px;"  >
+						<div id="aboutShow1">
+							<div>
+								<div class="page_content">
+									<div class="article">
+										<div class="article_hd">
+											<h1>新闻标题</h1>
+											<h6>
+												<span>浏览次数：123</span>
+												<span>发布日期：2016-02-19</span>
+											</h6>
+										</div>
+										
+										 <div>
+									    	<p>test</p>
+									    	<img src="images/about1.jpg">
+									    	<p>test</p>
+									    	<img src="images/about1.jpg">
+										</div>
+											
+									           
+									           
+									        
+									
+									</div>
+									<div class="pagination2 row">
+										<div class="prev col-lg-6 col-md-12 col-sm-12 clo-xs-12">
+											<a href="#">上一篇：XXXXXXXXXX</a>
+										</div>
+										<div class="next col-lg-6 col-md-12 col-sm-12 clo-xs-12">
+											<a href="#">上一篇：XXXXXXXXXX</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							
+								
+								
+						</div>
+					</div>	
+					
+					<div class="col-lg-3  col-sm-4" style="padding-top: 15px;"  >
+						<img class="about1"  src="images/about2.jpg"><br/>
+						<img class="about1"   src="images/about3.png"><br/>
+						<img class="about1"  src="images/about3.png"><br/>
+						
+					</div>
+				
+				
+			</div>
+			
+			<div id="about2" >
+				<div id="slideBox" class="slideBox"  >
+					<div class="bd bd1">
+						<ul>
+							<li>
+								<a class="pic" href="#"><img src="images/aaaaa.png"/></a>
+							</li>
+							<li>
+								<a class="pic" href="#"><img src="images/aaaaa.png" /></a>
+							</li>
+						</ul>
+					</div>
+					<span class="prev hidden-xs hidden-sm"></span>
+					<span class="next hidden-xs hidden-sm"></span>
+					
+				</div>
+				<div class="container">
+					<img class="col-lg-5" style="height: 170px;" src="images/about3.png">
+					<img class="col-lg-7" style="height: 170px;" src="images/about3.png">
+				</div>
+			</div>
+			
+			
+			
+				
+			
 		</div>
+		
+			
+						
+		
+		
+		
+		
+		
+		
+		<br/>
+		<br/>
 		<div class="footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<div class="footer_ewm col-lg-3 col-md-3 col-sm-3 hidden-xs">
-							<img src="upload/code.png"/>
-						</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						
 						<ul class="footer_contact col-lg-9 col-md-9 col-sm-9 hidden-xs">
+							<li><span style="font-size: 16px; color: #CCCCCC;">关于优速</span></li>
 							<li>电话：<i>400-000-0000</i></li>
 							<li>服务时间：周一到周五早8:00到晚5:00</li>
 							<li>邮箱：xxx@163.com</li>
 							<li>地址：公司地址</li>
 						</ul>
+						
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						
+						<ul class="footer_contact col-lg-9 col-md-9 col-sm-9 hidden-xs">
+							<li><span style="font-size: 16px; color: #CCCCCC;">优速服务</span></li>
+							<li>电话：<i>400-000-0000</i></li>
+							<li>服务时间：周一到周五早8:00到晚5:00</li>
+							<li>邮箱：xxx@163.com</li>
+							<li>地址：公司地址</li>
+						</ul>
+						
+					</div>
+					
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 						<ul class="footer_nav hidden-xs">
 							<li><a href="#">新闻中心</a></li>
 							<li><a href="#">产品中心</a></li>
@@ -126,5 +297,178 @@
 		</div>
 		<script type="text/javascript" src="js/jquery-1.11.3.js" ></script>
 		<script type="text/javascript" src="js/main.js" ></script>
+		<script type="text/javascript" src="js/TouchSlide.1.1.js" ></script>
+		<script>
+			TouchSlide({ 
+				slideCell:"#slideBox", 
+				titCell:".hd li",
+				mainCell:".bd ul",
+				effect:"leftLoop"
+//				autoPlay:true//自动播放
+			});
+			TouchSlide({ 
+				slideCell:"#news_slide",
+				mainCell:".bd ul",
+				effect:"leftLoop",
+				autoPlay:true//自动播放
+			});
+		</script>
+		
+		<script type="text/javascript">
+		$(".find_nav_list").css("left",0);
+		
+		$(".find_nav_list li").each(function(){
+				$(".sideline").css({left:0});
+				$(".find_nav_list li").eq(0).addClass("find_nav_cur").siblings().removeClass("find_nav_cur");
+		});
+		var nav_w=$(".find_nav_list li").first().width();
+		$(".sideline").width(nav_w);
+		$(".find_nav_list li").on('click', function(){
+			
+			nav_w=$(this).width();
+			$(".sideline").stop(true);
+			$(".sideline").animate({left:$(this).position().left},300);
+			$(".sideline").animate({width:nav_w});
+			$(this).addClass("find_nav_cur").siblings().removeClass("find_nav_cur");
+			var fn_w = ($(".find_nav").width() - nav_w) / 2;
+			var fnl_l;
+			var fnl_x = parseInt($(this).position().left);
+			if (fnl_x <= fn_w) {
+				fnl_l = 0;
+			} else if (fn_w - fnl_x <= flb_w - fl_w) {
+				fnl_l = flb_w - fl_w;
+			} else {
+				fnl_l = fn_w - fnl_x;
+			}
+			
+			//选项卡
+			$("#slider1").html($(this).text());
+			
+			
+		});
+		var fl_w=$(".find_nav_list").width();
+		var flb_w=$(".find_nav_left").width();
+		$(".find_nav_list").on('touchstart', function (e) {
+			var touch1 = e.originalEvent.targetTouches[0];
+			x1 = touch1.pageX;
+			y1 = touch1.pageY;
+			ty_left = parseInt($(this).css("left"));
+		});
+		$(".find_nav_list").on('touchmove', function (e) {
+			var touch2 = e.originalEvent.targetTouches[0];
+			var x2 = touch2.pageX;
+			var y2 = touch2.pageY;
+			if(ty_left + x2 - x1>=0){
+				$(this).css("left", 0);
+			}else if(ty_left + x2 - x1<=flb_w-fl_w){
+				$(this).css("left", flb_w-fl_w);
+			}else{
+				$(this).css("left", ty_left + x2 - x1);
+			}
+			if(Math.abs(y2-y1)>0){
+				e.preventDefault();
+			}
+		});
+		
+		
+		for(n=1;n<9;n++){
+			var page='pagenavi'+n;
+			var mslide='slider'+n;
+			var mtitle='emtitle'+n;
+			arrdiv = 'arrdiv' + n;
+			var as=document.getElementById(page).getElementsByTagName('a');
+			var tt=new TouchSlider({id:mslide,'auto':'-1',fx:'ease-out',direction:'left',speed:600,timeout:5000,'before':function(index){
+				var as=document.getElementById(this.page).getElementsByTagName('a');
+				as[this.p].className='';
+				this.p=index;
+				
+				fnl_x =  parseInt($(".find_nav_list li").eq(this.p).position().left);
+				
+				nav_w=$(".find_nav_list li").eq(this.p).width();
+				$(".sideline").stop(true);
+				$(".sideline").animate({left:$(".find_nav_list li").eq(this.p).position().left},300);
+				$(".sideline").animate({width:nav_w},100);
+				$(".find_nav_list li").eq(this.p).addClass("find_nav_cur").siblings().removeClass("find_nav_cur");
+				var fn_w = ($(".find_nav").width() - nav_w) / 2;
+				var fnl_l;
+				if (fnl_x <= fn_w) {
+					fnl_l = 0;
+				} else if (fn_w - fnl_x <= flb_w - fl_w) {
+					fnl_l = flb_w - fl_w;
+				} else {
+					fnl_l = fn_w - fnl_x;
+				}
+				$(".find_nav_list").animate({
+					"left" : fnl_l
+				}, 300);
+			}});
+			tt.page = page;
+			tt.p = 0;
+			//console.dir(tt); console.dir(tt.__proto__);
+		
+			for(var i=0;i<as.length;i++){
+				(function(){
+					var j=i;
+					as[j].tt = tt;
+					as[j].onclick=function(){
+						this.tt.slide(j);
+						return false;
+					}
+				})();
+			}
+		}
+		</script>
+		<script>
+			$(function(){
+				
+				$(".date1").html(new Date().toDateString());
+				$("#about2").hide();
+				$("#many").click(function(){
+					$(".editor").append($(".editor").html());
+				});
+				$("#aboutOne").click(function(){
+					$("#aboutShow1").show();
+					$("#aboutShow2").hide();
+					$("#aboutShow3").hide();
+					$("#aboutDetail").html($(this).text());  
+					
+					$("#about1").show();
+					$("#about2").hide();
+				})
+				
+				$("#aboutTwo").click(function(){
+					$("#aboutShow1").hide();
+					$("#aboutShow2").show();
+					$("#aboutShow3").hide();
+					$("#aboutDetail").html($(this).text());
+					
+					$("#about1").show();
+					$("#about2").hide();
+					
+				})
+				
+				$("#aboutThree").click(function(){
+					$("#aboutShow1").hide();
+					$("#aboutShow2").hide();
+					$("#aboutShow3").show();
+					
+					
+					
+					
+					$("#aboutDetail").html($(this).text());
+					
+				})
+				$(".text1").click(function(){
+					
+					$(".text1").css("background-color","#f8f8f8");
+					 $(this).css("background-color","#e2e2e2");
+				})
+				
+				
+				
+				
+				
+			})
+		</script>
 	</body>
 </html>

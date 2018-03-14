@@ -9,142 +9,280 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/global.css" />
 		<link rel="stylesheet" href="css/style.css" />
+		
+<style type="text/css">
+
+
+
+.tabslist .find_nav_list {
+    position: absolute;
+    left: 0;
+}
+.tabslist .find_nav_list ul {
+    position: relative;
+    white-space: nowrap;
+    font-size: 0;
+}
+.tabslist .find_nav_list ul li {
+    display: inline-block;
+    padding: 0;
+	margin:0 0px;
+	margin-right: 20px;
+}
+.tabslist .find_nav_list ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 20px;
+    font-size: 13px;
+    text-align: center;
+    color: #666;
+}
+.tabslist .find_nav_cur a {
+    color: #48a5f4 !important;
+    text-decoration:none;
+    text-align:left;
+}
+
+.tabslist .sideline {
+    display: block;
+    position: absolute;
+    border: 0;
+    height: 2px;
+    background-color: #48a5f4;
+    left: 0;
+    top: 50px;
+    pointer-events: none;
+}
+
+.tabslist .sideline1 {
+    display: block;
+    position: absolute;
+    border: 0;
+    height: 2px;
+    
+    left: 0;
+    top: 35px;
+    pointer-events: none;
+}
+.tabslist .li_list{ min-height:800px; font-size:35px; line-height:800px; color:#fff; text-align:left;}
+.tabslist .swipe{ padding:50px 0 0 0px;margin-left: -15px;}
+
+/*风琴*/ 
+.box1{ width:  100%; height: 450px;  overflow: hidden;}
+		.box1 div{ width: 20%;  float: left; transition: all 1s;}
+		.box1 img{width: 500px;}
+		.box1:hover div{ width: 20%; }
+		.box1 div:hover{ width: 40%; }
+
+
+
+#aboutShow1 ul li{
+	margin-bottom:20px;
+}
+
+
+</style>
 	</head>
-	<body class="bg01">
-		<div class="mobile_header hidden-md hidden-lg">
+	
+	<body class="bg01" >
+		
+<div class="mobile_header hidden-md hidden-lg">
 			<a href="index.html" class="logo">
 				<img src="upload/logo.png"/>
 			</a>
 			<span class="menu_icon"></span>
 			<ul class="menu">
-				<li class="on"><a href="index.html">首页</a></li>
+				<li><a href="index.html">首页</a></li>
 	        	<li><a href="about.html">关于我们</a></li>
-	        	<li><a href="cplist.html">产品中心</a></li>
+	        	<li class="on"><a href="cplist.html">产品中心</a></li>
 	        	<li><a href="newslist.html">新闻中心</a></li>
-	        	<li><a href="contact.html">联系我们</a></li>
-	        	<li><a href="message.html">在线留言</a></li>
+	        	<li ><a href="contact.html">联系我们</a></li>
+	        	<li ><a href="message.html">投诉反馈</a></li>
 			</ul>
 		</div>
-		<div class="header hidden-xs hidden-sm clearfix">
+		<div class="header hidden-xs hidden-sm clearfix" >
 			<div class="container">				
-				<a href="index.html" class="logo">
+				<a href="index.html" class="logo" >
 					<img src="upload/logo.png"/>
 				</a>
-				<div class="nav">
+				<div class="nav" style=" border-right: 1px solid #B6B6B6 ;">
 			    	<ul>
-			        	<li class="on"><a href="index.html">首页</a></li>
-	        	<li><a href="about.html">关于我们</a></li>
-	        	<li><a href="cplist.html">产品中心</a></li>
-	        	<li><a href="newslist.html">新闻中心</a></li>
-	        	<li><a href="contact.html">联系我们</a></li>
-	        	<li><a href="message.html">在线留言</a></li>
+			    		<li><a>&nbsp;</a></li>
+			    		<li><a>&nbsp;</a></li>
+			        	<li ><a href="index.html">首页</a></li>
+			        	<li ><a href="about.html">优速国际</a></li>
+			        	<li><a href="newslist.html">新闻中心</a></li>
+			        	<li class="on"><a href="cplist.html">产品中心</a></li>
+			        	
+			        	<li ><a href="contact.html">联系我们</a></li>
+			        	<li ><a href="message.html">投诉反馈</a></li>
+			        	
+			        	
 			      	</ul>
 			    </div>
+			    
+			    <a  class="search" >
+					<img src="images/search.png"/>
+				</a>
+				<span class="language" >
+					中/EN
+				</span>
+			    
 			</div>
 		</div>
-		<div class="page_top">
-			<a href="#">
-				<img src="upload/banner-sm.png"/>
-			</a>
-		</div>
-		<div class="page_nav_box">
-			<div class="container">
-				<div class="row">
-					<div class="page_pos col-lg-12 text-center">
-						<span>当前位置：</span>
-						<a href="#">首页</a>
-						&gt;
-						<a href="#">产品中心</a>
+		<div class="content_bd" style="overflow: hidden;">
+			<img src="images/banner2.jpg" style="height: 100px; width: 100%;">
+			<div class="page_nav_box" style="width:100%;border-bottom: 1px solid #eee;" >
+				<div class="container" style="height: 60px;">
+					<div class="row">
+						<div class="page_pos col-lg-10  col-sm-8 text-center">
+							<span></span>
+							<a href="#">产品中心</a>
+							
+							
+						</div>
+						<div class="col-lg-2 col-sm-4 page_pos1"  >
+							<!--<ul >
+							
+								<li class="tabslist" style="float: right;"> 
+									
+										        <div class="find_nav_list text-right"  >
+										            <ul >
+										        
+										                <li><a href="#" class="active" id="aboutOne" >集团介绍</a></li>
+										                <li><a href="#" id="aboutTwo">团队介绍</a></li>
+										                <li><a href="#" id="aboutThree">大事记</a></li>
+										                
+										                <li class="sideline"></li>
+										            </ul>
+										
+										        </div>
+	
+								</li>
+								
+							</ul>-->
+									
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="container">			
-			<div class="page_left col-lg-3 col-md-3 col-sm-3 col-xs-12">
-				<div class="sub_nav">						
-					<ul>
-						<li class="on"><a href="#">全部</a></li>
-						<li><a href="#">产品分类一</a></li>
-						<li><a href="#">产品分类二</a></li>
-						<li><a href="#">产品分类三</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="page_right col-lg-9 col-md-9 col-sm-9 col-xs-12">
-				<div class="page_content">
-					<ul class="mod_list row mod_list_2">
-						<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
-							<a class="pro_pic" href="#">
-								<img src="upload/pic02.jpg"/>
-							</a>
-							<a href="#" class="pro_tit">热销产品一</a>
-						</li>
-						<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
-							<a class="pro_pic" href="#">
-								<img src="upload/pic02.jpg"/>
-							</a>
-							<a href="#" class="pro_tit">热销产品一</a>
-						</li>
-						<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
-							<a class="pro_pic" href="#">
-								<img src="upload/pic02.jpg"/>
-							</a>
-							<a href="#" class="pro_tit">热销产品一</a>
-						</li>
-						<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
-							<a class="pro_pic" href="#">
-								<img src="upload/pic02.jpg"/>
-							</a>
-							<a href="#" class="pro_tit">热销产品一</a>
-						</li>
-						<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
-							<a class="pro_pic" href="#">
-								<img src="upload/pic02.jpg"/>
-							</a>
-							<a href="#" class="pro_tit">热销产品一</a>
-						</li>
-						<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
-							<a class="pro_pic" href="#">
-								<img src="upload/pic02.jpg"/>
-							</a>
-							<a href="#" class="pro_tit">热销产品一</a>
-						</li>
-					</ul>
+			<div class="container" id="about1" >
+					<div class="col-lg-9  col-sm-8" style="border-right: 1px solid #eee;"  >
+						<div class="page_content">
+							<ul class="mod_list row mod_list_2">
+								<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+									<a class="pro_pic" href="cpdetail.html">
+										<img src="upload/pic02.jpg"/>
+									</a>
+									<a href="#" class="pro_tit">热销产品一</a>
+								</li>
+								<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+									<a class="pro_pic" href="cpdetail.html">
+										<img src="upload/pic02.jpg"/>
+									</a>
+									<a href="#" class="pro_tit">热销产品一</a>
+								</li>
+								<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+									<a class="pro_pic" href="cpdetail.html">
+										<img src="upload/pic02.jpg"/>
+									</a>
+									<a href="#" class="pro_tit">热销产品一</a>
+								</li>
+								<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+									<a class="pro_pic" href="cpdetail.html">
+										<img src="upload/pic02.jpg"/>
+									</a>
+									<a href="#" class="pro_tit">热销产品一</a>
+								</li>
+								<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+									<a class="pro_pic" href="cpdetail.html">
+										<img src="upload/pic02.jpg"/>
+									</a>
+									<a href="#" class="pro_tit">热销产品一</a>
+								</li>
+								<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+									<a class="pro_pic" href="cpdetail.html">
+										<img src="upload/pic02.jpg"/>
+									</a>
+									<a href="#" class="pro_tit">热销产品一</a>
+								</li>
+							</ul>
+							<br/>
+							<!--分页-->
+							<ul class="pagination mod_pagination" style="color: #46B8DA;">
+							    <li>
+							      <a href="#" aria-label="Previous">
+							        <span aria-hidden="true">上一页</span>
+							      </a>
+							    </li>
+							    <li><a href="#">1</a></li>
+							    <li><a href="#">2</a></li>
+							    <li><a href="#">3</a></li>
+							    <li>
+							      <a href="#" aria-label="Next">
+							        <span aria-hidden="true">下一页</span>
+							      </a>
+							    </li>
+							</ul>
+						</div>
+					</div>
+						
 					
-					<!--分页-->
-					<ul class="pagination mod_pagination">
-					    <li>
-					      <a href="#" aria-label="Previous">
-					        <span aria-hidden="true">上一页</span>
-					      </a>
-					    </li>
-					    <li><a href="#">1</a></li>
-					    <li><a href="#">2</a></li>
-					    <li><a href="#">3</a></li>
-					    <li>
-					      <a href="#" aria-label="Next">
-					        <span aria-hidden="true">下一页</span>
-					      </a>
-					    </li>
-					</ul>
-				</div>
+					<div class="col-lg-3  col-sm-4" style="padding-top: 15px;"  >
+						<img class="about1"  src="images/about2.jpg"><br/>
+						<img class="about1"   src="images/about3.png"><br/>
+						<img class="about1"  src="images/about3.png"><br/>
+						
+					</div>
+				
+				
 			</div>
+			
+			
+			
+			
+				
+			
 		</div>
+		
+			
+						
+		
+		
+		
+		
+		
+		
+		<br/>
+		<br/>
 		<div class="footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<div class="footer_ewm col-lg-3 col-md-3 col-sm-3 hidden-xs">
-							<img src="upload/code.png"/>
-						</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						
 						<ul class="footer_contact col-lg-9 col-md-9 col-sm-9 hidden-xs">
+							<li><span style="font-size: 16px; color: #CCCCCC;">关于优速</span></li>
 							<li>电话：<i>400-000-0000</i></li>
 							<li>服务时间：周一到周五早8:00到晚5:00</li>
 							<li>邮箱：xxx@163.com</li>
 							<li>地址：公司地址</li>
 						</ul>
+						
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						
+						<ul class="footer_contact col-lg-9 col-md-9 col-sm-9 hidden-xs">
+							<li><span style="font-size: 16px; color: #CCCCCC;">优速服务</span></li>
+							<li>电话：<i>400-000-0000</i></li>
+							<li>服务时间：周一到周五早8:00到晚5:00</li>
+							<li>邮箱：xxx@163.com</li>
+							<li>地址：公司地址</li>
+						</ul>
+						
+					</div>
+					
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 						<ul class="footer_nav hidden-xs">
 							<li><a href="#">新闻中心</a></li>
 							<li><a href="#">产品中心</a></li>
@@ -162,5 +300,10 @@
 		</div>
 		<script type="text/javascript" src="js/jquery-1.11.3.js" ></script>
 		<script type="text/javascript" src="js/main.js" ></script>
+		<script type="text/javascript" src="js/TouchSlide.1.1.js" ></script>
+		<script src="js/distpicker.data.js"></script>
+	  <script src="js/distpicker.js"></script>
+	  
+		
 	</body>
 </html>

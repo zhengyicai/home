@@ -311,7 +311,7 @@
 								<div  class="col-sm-6" style="height: 220px; " >
 									<div class="date1" style="font-size: 25px; color: #46B8DA;"></div>
 									<div style="height: 140px;">
-										<span><b style="font-size: 1.2em; color: #646464">杭钢集团与万科集团正式签约 资产包合作落定</b></span>
+										<span><b style="font-size: 1.2em; color: #646464"></b></span>
 									    <div style="margin-top: 10px;font-size: 0.8em;">3月2日下午，杭钢集团与万科集团在杭州举行资产包合作签约仪式。此次双方合作的资源包含8个项目，分布在杭州、嘉兴、台州、马鞍山、诸暨共5个城市。会议由浙江万科南都房地产有限公司副总经理周广主持，杭钢集团董事、总会计师汤民强...</div>
 									</div>
 									<div style="width: 100%; background-color: #EEEEEE; height: 45px; line-height: 45px; color: #46B8DA; font-weight: bold; text-align: center;" id="many">更多</div>
@@ -326,6 +326,7 @@
 										
 										<table id="new2Table">
 											<tr style="">
+												
 												<td>
 													<img style="height: 90px; width: 90px;"  src="images/about_p.jpg">
 												</td>
@@ -598,6 +599,7 @@
 				$("#about2").hide();
 				$("#many").click(function(){
 					$(".editor").append($(".editor").html());
+					location.href = "newsdetail.html";
 				});
 				$("#aboutOne").click(function(){
 					$("#aboutShow1").show();
@@ -636,6 +638,12 @@
 					$(".text1").css("background-color","#f8f8f8");
 					 $(this).css("background-color","#e2e2e2");
 				})
+				
+				$("#new2Table tr").click(function(){
+					
+					location.href="newsdetail.html";
+				})
+				
 				
 				
 				

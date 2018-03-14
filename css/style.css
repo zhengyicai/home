@@ -336,7 +336,7 @@ span,div {
 	display: block;
 	width: 100%;
 	overflow: hidden;
-	text-align: right;
+	text-align: center;
 }
 
 .mod_pagination li {
@@ -345,7 +345,7 @@ span,div {
 
 .mod_pagination li a,
 .mod_pagination li span {
-	color: #646464;
+	color: #46B8DA;
 }
 
 .slideBox {
@@ -755,11 +755,12 @@ span,div {
 .pro_item .pro_tit {
 	display: block;
 	padding: 10px 0;
+	font-weight: bold;
 	border: 1px solid #FFFFFF;
 	border-top: 0;
 	background-color: #FFFFFF;
-	font-size: 18px;
-	color: #444444;
+	font-size: 12px;
+	color: #646464;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -772,7 +773,7 @@ span,div {
 }
 
 .pro_item .pro_tit:hover {
-	border-color: #E8A651;
+	/*border-color: #46B8DA;*/
 }
 
 .product_list_2 .pro_item {
