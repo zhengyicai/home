@@ -106,22 +106,27 @@
 				<a href="index.html" class="logo" >
 					<img src="upload/logo.png"/>
 				</a>
-				<div class="nav" style=" border-right: 1px solid #B6B6B6 ;">
+				<div class="nav" style=" border-right: 1px solid #B6B6B6 ;" id="nav1">
 			    	<ul>
 			    		<li><a>&nbsp;</a></li>
 			    		<li><a>&nbsp;</a></li>
-			        	<li class="on">
-			        		<a href="index.html">首页</a>
+			        	<li class="on navHover">
+			        		<a href="index.html" onmouseover="test()">首页</a>
 			        		
+
 
 			        		
 			        	</li>
-			        	<li><a href="about.html">优速国际</a></li>
-			        	<li><a href="newslist.html">新闻中心</a></li>
-			        	<li><a href="cplist.html">产品中心</a></li>
+			        	<li class="navHover"><a href="about.html" >优速国际</a>
+			        		<div id="test" style="display: none; height: 50px; width:300px;margin-right:0px;line-height: 50px; position: absolute; z-index:9999 ; background-color: #646464;">test</div>
+			        			
+			        		<!--<div id="show"   style="height: 50px;  width:130px;line-height: 50px; position: absolute; z-index:9999 ; background-color: #646464;">test</div>-->
+			        	</li>
+			        	<li class="navHover"><a href="newslist.html" >新闻中心</a></li>
+			        	<li class="navHover"><a href="cplist.html" >产品中心</a></li>
 			        	
-			        	<li><a href="contact.html">联系我们</a></li>
-			        	<li><a href="message.html">投诉反馈</a></li>
+			        	<li class="navHover"><a href="contact.html" >联系我们</a></li>
+			        	<li class="navHover"><a href="message.html" >投诉反馈</a></li>
 			        	
 			        	
 			      	</ul>
@@ -296,6 +301,19 @@
 				effect:"leftLoop",
 				autoPlay:true//自动播放
 			});
+			
+			
+			function test(){
+				/*$("#nav1 ul li").mouseover(function(){
+					$("#nav1 ul li").removeClass("on");
+					$(this).addClass("on");
+				})*/
+				$("#nav1 ul .navHover").mouseover(function(){
+					$("#nav1 ul .navHover").removeClass("on");
+					$(this).addClass("on");
+					$("#test").show(300);
+				})
+			}
 		</script>
 		
 		<script type="text/javascript">
