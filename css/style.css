@@ -982,7 +982,25 @@ span,div {
 	cursor: pointer;
 }
 
+
+@media (min-width:767px){
+	.content_bd{
+		display:block;
+	}
+	.content_mobile{
+		display:none;
+	}
+}
+
+
 @media (max-width:767px) {
+	
+	.content_bd{
+		display: none;
+	}
+	.content_mobile{
+		display:block;
+	}
 	.footer .links {
 		margin-bottom: 10px;
 	}
@@ -1112,6 +1130,43 @@ span,div {
 	text-align: center;
 }
 
- 
+
+/*index  首页*/
+
+.content_mobile{
+	
+}
+
+
+.entries {position:relative; -webkit-transition:background-color 500ms;}
+.entries .top,
+.entries .bottom {height:0; padding:0; -webkit-transition:height 300ms, padding 300ms; overflow:hidden;}
+
+.entries .top a {float:left;width:4em;height:4em;border-radius:4em;color:#616161;text-align:center;font-size:14px;line-height:100px;background:no-repeat center center;background-size:30px auto;overflow:visible;}*/
+
+@media only screen and (min-width: 100px) and (max-width: 320px) {
+	
+	.entries .top a {float:left;width:40px;height:40px;border-radius:40px;color:#616161;text-align:center;font-size:14px;line-height:100px;background:no-repeat center center;background-size:30px auto;overflow:visible;}
+}
+
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+	.entries .top a {float:left;width:4em;height:4em;border-radius:4em;color:#616161;text-align:center;font-size:14px;line-height:100px;background:no-repeat center center;background-size:30px auto;overflow:visible;}
+}
+
+@media only screen and (min-width: 376px) and (max-width: 414px) {
+	.entries .top a {float:left;width:70px;height:70px;border-radius:70px;color:#616161;text-align:center;font-size:14px;line-height:100px;background:no-repeat center center;background-size:30px auto;overflow:visible;}
+}
+
+
+
+.entries .top a span {display:block; width:100%; height:100%; border-radius:300px; -webkit-transition:-webkit-transform 500ms, -webkit-opacity 500ms;}
+.entries .top a.link-1 {background-color:#e9413c; background-image:url(http://www.vanke.com/v_mobile/img/index/icon_1.png);}
+.entries .top a.link-2 {background-color:#1653ba; background-image:url(http://www.vanke.com/v_mobile/img/index/icon_2.png);}
+.entries .top a.link-3 {background-color:#3cb034; background-image:url(http://www.vanke.com/v_mobile/img/index/icon_3.png);}
+.entries .top a.link-4 {background-color:#ffa130; background-image:url(http://www.vanke.com/v_mobile/img/index/icon_4.png);}
+.entries .top a.link-1 .shadow {background-color:#e9413c;}
+.entries .top a.link-2 .shadow {background-color:#1653ba;}
+.entries .top a.link-3 .shadow {background-color:#3cb034;}
+.entries .top a.link-4 .shadow {background-color:#ffa130;} 
  
   

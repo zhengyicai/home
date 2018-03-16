@@ -154,7 +154,7 @@
 			        	<li class="navHover" >
 			        		<img src="images/search.png" />&nbsp;&nbsp;&nbsp;&nbsp;
 								<div class="indexBanner1" style="color: #000000; width: 250px;">
-						        			<input style="width: 250px; border: 5px solid #222222;"  type="text" placeholder="请输入关键字"/>
+						        			<input style="width: 250px; border: 5px solid #222222;" class="searchDiv"  type="text" placeholder="请输入关键字"/>
 						        </div>
 			        		
 			        	</li>
@@ -278,9 +278,52 @@
 					
 		</div>
 		</div>
+		<!--手机端-->
+		<div class="content_mobile" >
+			
+			<div id="slideBoxMobile" class="slideBox"  >
+				<div class="bd">
+					<ul  >
+						<li>
+							<a class="pic" href="#" style="height: 200px;"><img style="height: 200px;"  src="images/banner2.jpg" /></a>
+						</li>
+						<li>
+							<a class="pic" href="#"><img style="height: 200px;"  src="images/banner3.jpg" /></a>
+						</li>
+					</ul>
+				</div>
+				<span class="prev hidden-xs hidden-sm"></span>
+				<span class="next hidden-xs hidden-sm"></span>
+				<ul class="hd">
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div class="entries container">
+				<div class="top anim-active" style="height: 88px; padding: 9px 9px 32px; ">
+                    <a class="link-1" href="about.aspx?type=5" style="margin: 9px;line-height: 32px;"><span class="shadow" style="transform: scale(1, 1); opacity: 0;"></span><span>团队介绍</span></a>
+                    <a class="link-2" href="feedback.aspx" style="margin: 9px; line-height: 32px;"><span class="shadow" style="transform: scale(1, 1); opacity: 0;"></span><span>投诉建议</span></a>
+                    <a class="link-3" href="about.aspx?type=4" style="margin: 9px; line-height: 32px;"><span class="shadow" style="transform: scale(1, 1); opacity: 0;"></span><span>关注万科</span></a>
+                    <a class="link-4" href="report.aspx" style="margin: 9px; line-height: 32px;"><span class="shadow" style="transform: scale(1, 1); opacity: 0;"></span><span>廉政举报</span></a>
+                </div>
+                <div>
+                	
+                	
+                </div>
+				
+			</div>
+			
+			
+			
+			
+			
+		</div>
 		
 		
 		<br/>
+		<br/>
+		
+		
 		<br/>
 		<div class="footer">
 			<div class="container">
@@ -341,6 +384,22 @@
 				effect:"leftLoop",
 				autoPlay:true//自动播放
 			});
+			
+			
+			
+			TouchSlide({ 
+				slideCell:"#slideBoxMobile", 
+				titCell:".hd li",
+				mainCell:".bd ul",
+				effect:"leftLoop"
+//				autoPlay:true//自动播放
+			});
+			/*TouchSlide({ 
+				slideCell:"#news_slide",
+				mainCell:".bd ul",
+				effect:"leftLoop",
+				autoPlay:true//自动播放
+			});*/
 			
 			
 			
