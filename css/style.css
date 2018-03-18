@@ -1071,11 +1071,27 @@ span,div {
 	 
 }
 
+
+#aboutShowMobile2 .text1{
+	background-color: #f8f8f8;
+	height: 60px;
+	line-height: 60px;
+}
+
+
 #show2Table tr{
 	 background-color: #f1eff1;
 	 display:block; /*将tr设置为块体元素*/
     margin:10px 0;
 }
+
+
+#show2MobileTable tr{
+	 background-color: #f1eff1;
+	 display:block; /*将tr设置为块体元素*/
+    margin:10px 0;
+}
+
 
 #new2Table tr{
 	
@@ -1145,15 +1161,26 @@ span,div {
 .entries .top a {float:left;width:4em;height:4em;border-radius:4em;color:#616161;text-align:center;font-size:14px;line-height:100px;background:no-repeat center center;background-size:30px auto;overflow:visible;}*/
 
 @media only screen and (min-width: 100px) and (max-width: 320px) {
-	
+	#anim{
+		height: 100px;
+		padding: 9px 9px 20px; 
+	}
 	.entries .top a {float:left;width:40px;height:40px;border-radius:40px;color:#616161;text-align:center;font-size:14px;line-height:100px;background:no-repeat center center;background-size:30px auto;overflow:visible;}
 }
 
 @media only screen and (min-width: 321px) and (max-width: 375px) {
-	.entries .top a {float:left;width:4em;height:4em;border-radius:4em;color:#616161;text-align:center;font-size:14px;line-height:100px;background:no-repeat center center;background-size:30px auto;overflow:visible;}
+	#anim{
+		height: 100px;
+		padding: 9px 9px 20px; 
+	}
+	.entries .top a {float:left;width:60px;height:60px;border-radius:60px;color:#616161;text-align:center;font-size:14px;line-height:100px;background:no-repeat center center;background-size:30px auto;overflow:visible;}
 }
 
 @media only screen and (min-width: 376px) and (max-width: 414px) {
+	#anim{
+		height: 120px;
+		padding: 9px 9px 20px; 
+	}
 	.entries .top a {float:left;width:70px;height:70px;border-radius:70px;color:#616161;text-align:center;font-size:14px;line-height:100px;background:no-repeat center center;background-size:30px auto;overflow:visible;}
 }
 
@@ -1168,5 +1195,51 @@ span,div {
 .entries .top a.link-2 .shadow {background-color:#1653ba;}
 .entries .top a.link-3 .shadow {background-color:#3cb034;}
 .entries .top a.link-4 .shadow {background-color:#ffa130;} 
+
+
+
+.mobileTitle{
+	width: 100%;
+	background-color: #46B8DA;
+	height: 70px;
+	line-height: 70px;
+	margin-bottom: 3px;
+	color: white;
+	padding-left: 35px;
+	
+}
+
+.mobileTitle span{
+	
+	color: white;
+	margin-right: 30px;
+	
+}
  
+.mobileAboutTitle{
+	height: 60px;
+	color: white;
+	font-size: 20px;
+	line-height: 60px;
+	text-align: center;
+	background-color: #46B8DA;
+}
+.mobileAboutTitle span{
+	color: white;
+
+}
+#dropdown1 p{
+	background-color: #46B8DA;
+	color: white;
+}
+
+#dropdownUl li a {
+	color: white;
+	opacity: 1;
+}
+
+#about2MobileDetail div{
+	border-bottom: 10px solid #f1eff1;
+}
+
   
