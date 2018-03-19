@@ -67,7 +67,7 @@ $(".navTwoTitle").mouseenter(function(){
 })
 
 
-/*$('.searchDiv').bind('keypress',function(event){ 
+$('.searchDiv').bind('keypress',function(event){ 
          
           
          if(event.keyCode == 13)      
@@ -80,7 +80,7 @@ $(".navTwoTitle").mouseenter(function(){
      
      
 
-
+/*
 function browserRedirect() { 
 
 	var sUserAgent= navigator.userAgent.toLowerCase(); 
