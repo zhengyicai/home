@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta name="viewport" content="user-scalable=no,width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/global.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		
+<style type="text/css">
+
+
+
+.tabslist .find_nav_list {
+    position: absolute;
+    left: 0;
+}
+.tabslist .find_nav_list ul {
+    position: relative;
+    white-space: nowrap;
+    font-size: 0;
+}
+.tabslist .find_nav_list ul li {
+    display: inline-block;
+    padding: 0;
+	margin:0 0px;
+	margin-right: 20px;
+}
+.tabslist .find_nav_list ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 20px;
+    font-size: 13px;
+    text-align: center;
+    color: #666;
+}
+.tabslist .find_nav_cur a {
+    color: #48a5f4 !important;
+    text-decoration:none;
+    text-align:left;
+}
+
+.tabslist .sideline {
+    display: block;
+    position: absolute;
+    border: 0;
+    height: 2px;
+    background-color: #48a5f4;
+    left: 0;
+    top: 50px;
+    pointer-events: none;
+}
+
+.tabslist .sideline1 {
+    display: block;
+    position: absolute;
+    border: 0;
+    height: 2px;
+    
+    left: 0;
+    top: 35px;
+    pointer-events: none;
+}
+.tabslist .li_list{ min-height:800px; font-size:35px; line-height:800px; color:#fff; text-align:left;}
+.tabslist .swipe{ padding:50px 0 0 0px;margin-left: -15px;}
+
+/*风琴*/ 
+.box1{ width:  100%; height: 450px;  overflow: hidden;}
+		.box1 div{ width: 20%;  float: left; transition: all 1s;}
+		.box1 img{width: 500px;}
+		.box1:hover div{ width: 20%; }
+		.box1 div:hover{ width: 40%; }
+
+
+
+#aboutShow1 ul li{
+	margin-bottom:20px;
+}
+
+
+</style>
+	</head>
+	
+	<body class="bg01" >
+		
+<div class="mobile_header hidden-md hidden-lg">
+			<a href="index.html" class="logo">
+				<img src="upload/logo.png"/>
+			</a>
+			<span class="menu_icon"></span>
+			<ul class="menu">
+				<li><a href="index.html">首页</a></li>
+	        	<li><a href="about.html">关于我们</a></li>
+	        	<li><a href="cplist.html">产品中心</a></li>
+	        	<li><a href="newslist.html">新闻中心</a></li>
+	        	<li class="on"><a href="contact.html">联系我们</a></li>
+	        	<li ><a href="message.html">投诉反馈</a></li>
+			</ul>
+		</div>
+		<div class="header hidden-xs hidden-sm clearfix" >
+			<div class="container">				
+				<a href="index.html" class="logo" >
+					<img src="upload/logo.png"/>
+				</a>
+				<div class="nav" style=" " id="nav1">
+			    	<ul>
+			    		<li><a>&nbsp;</a></li>
+			    		<li><a>&nbsp;</a></li>
+			        	<li  class="on navHover on11" >
+			        		<a href="index.html">首页</a>
+			        		
+
+
+			        		
+			        	</li>
+			        	<li class="navHover" ><a href="about.html" >优速国际</a>
+			        		<div class="indexBanner1">
+			        			<table>
+			        				<tr>
+			        				<td><a class="navTwoTitle" href="about.html" style="background-color: #646464;">集团介绍</a></td>
+		        					<td><a class="navTwoTitle" href="about.html" style="background-color: #646464;">团队介绍</a></td>
+		        					<td><a class="navTwoTitle" href="about.html" style="background-color: #646464;">大事记</a></td>
+			        				</tr>
+			        			</table>
+			        		</div>
+			        
+			        		<!--<div id="show"   style="height: 50px;  width:130px;line-height: 50px; position: absolute; z-index:9999 ; background-color: #646464;">test</div>-->
+			        	</li>
+			        	<li class="navHover"><a href="newslist.html" >新闻中心</a>
+			        		<div class="indexBanner1">
+			        			<table>
+			        				<tr>
+			        				<td><a class="navTwoTitle" href="newslist.html" style="background-color: #646464;">集团新闻</a></td>
+		        					<td><a class="navTwoTitle" href="newslist.html" style="background-color: #646464;">地方动态</a></td>
+		        					<td><a class="navTwoTitle" href="newslist.html" style="background-color: #646464;">媒体报道</a></td>
+			        				</tr>
+			        			</table>
+			        		</div>
+			        	</li>
+			        	<li class="navHover"><a href="cplist.html" >产品中心</a>
+			        		<!--<div class="indexBanner1"></div>-->
+			        	</li>
+			        	
+			        	<li  class="navHover"><a href="contact.html" >联系我们</a>
+			        		<!--<div class="indexBanner1">test</div>-->
+			        	</li>
+			        	<li class="navHover" style="border-right: 1px solid #B6B6B6 ;" ><a href="message.html" >投诉反馈</a>
+			        		<!--<div class="indexBanner1">test</div>-->
+			        	</li>
+			        	<li class="navHover" >
+			        		<img src="images/search.png" />&nbsp;&nbsp;&nbsp;&nbsp;
+								<div class="indexBanner1" style="color: #000000; width: 250px;">
+						        			<input style="width: 250px; border: 5px solid #222222;"  class="searchDiv"  type="text" placeholder="请输入关键字"/>
+						        </div>
+			        		
+			        	</li>
+			        	
+			        	<li class="navHover language1">
+			        		<a class="language" >
+								中/EN
+							</a>
+							<div class="indexBanner1">
+			        			<table style="color: white;">
+			        				<tr>
+			        				<td><a class="navTwoTitle" href="" style="background-color: #646464;color: white;">中文简体</a></td>
+		        					<td><a class="navTwoTitle" href="" style="background-color: #646464; color: white;">中文繁体</a></td>
+		        					<td><a class="navTwoTitle" href="" style="background-color: #646464; color: white;">EN</a></td>
+			        				</tr>
+			        			</table>
+			        		</div>
+			        		
+			        	</li>
+			        	
+			        	
+			      	</ul>
+			    </div>
+			    
+			   
+			    
+			</div>
+		</div>
+		<div class="content_bd" style="overflow: hidden;">
+			<img src="images/banner2.jpg" style="height: 100px; width: 100%;">
+			<div class="page_nav_box" style="width:100%;border-bottom: 1px solid #eee;" >
+				<div class="container" style="height: 60px;">
+					<div class="row">
+						<div class="page_pos col-lg-10  col-sm-8 text-center">
+							<span></span>
+							<a href="#">搜索结果页</a>
+							
+							
+						</div>
+						<div class="col-lg-2 col-sm-4 page_pos1"  >
+							<!--<ul >
+							
+								<li class="tabslist" style="float: right;"> 
+									
+										        <div class="find_nav_list text-right"  >
+										            <ul >
+										        
+										                <li><a href="#" class="active" id="aboutOne" >集团介绍</a></li>
+										                <li><a href="#" id="aboutTwo">团队介绍</a></li>
+										                <li><a href="#" id="aboutThree">大事记</a></li>
+										                
+										                <li class="sideline"></li>
+										            </ul>
+										
+										        </div>
+	
+								</li>
+								
+							</ul>-->
+									
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container" id="about1" >
+				<div style="text-align: center;">
+					
+					<img src="images/searchPage1.png" style="width: 90px; height: 90px;background-color: #46B8DA;" /><br/>
+					
+					<br/>
+					
+				
+				</div>
+				<div style="text-align: right;">
+					找到关于搜索0条记录
+				</div>
+				
+				<div>
+					<table id="new2Table">
+											<tr style="">
+												
+												<td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;">
+													<br/>
+													
+													<p style="font-weight: bold; font-size: 18px;">test</p>
+													<p>1951年出生于广西。1968年参军，1973年转业。转业后就职于郑州铁路水电段。1978年毕业于兰州铁道学院给排水专业，本科学历。毕业后，先后供职于广州铁路局、广东省外经贸委、深圳市特区发展公司。1984年组建万科前身深圳现代科教仪器展销中心，任总经理。<br><br></p>
+												</td>
+											</tr>
+											<tr>
+												
+												<td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;">
+													<br/>
+													
+													<p style="font-weight: bold; font-size: 18px;">test</p>
+													<p>1951年出生于广西。1968年参军，1973年转业。转业后就职于郑州铁路水电段。1978年毕业于兰州铁道学院给排水专业，本科学历。毕业后，先后供职于广州铁路局、广东省外经贸委、深圳市特区发展公司。1984年组建万科前身深圳现代科教仪器展销中心，任总经理。<br><br></p>
+												</td>
+											</tr>
+											<tr>
+												
+												<td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;">
+													<br/>
+													
+													<p style="font-weight: bold; font-size: 18px;">test</p>
+													<p>1951年出生于广西。1968年参军，1973年转业。转业后就职于郑州铁路水电段。1978年毕业于兰州铁道学院给排水专业，本科学历。毕业后，先后供职于广州铁路局、广东省外经贸委、深圳市特区发展公司。1984年组建万科前身深圳现代科教仪器展销中心，任总经理。<br><br></p>
+												</td>
+											</tr>
+											<tr>
+												
+												<td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;">
+													<br/>
+													
+													<p style="font-weight: bold; font-size: 20px;">test</p>
+													<p>1951年出生于广西。1968年参军，1973年转业。转业后就职于郑州铁路水电段。1978年毕业于兰州铁道学院给排水专业，本科学历。毕业后，先后供职于广州铁路局、广东省外经贸委、深圳市特区发展公司。1984年组建万科前身深圳现代科教仪器展销中心，任总经理。<br><br></p>
+												</td>
+											</tr>
+					</table>
+					<div style="width: 100%; background-color: #EEEEEE; height: 55px; line-height: 55px; color: #46B8DA; font-weight: bold; text-align: center;" id="many">更多</div>
+	
+				</div>
+					
+				
+				
+			</div>
+			
+			
+			
+			
+				
+			
+		</div>
+		
+			
+						
+		
+		
+		
+		
+		
+		
+		<br/>
+		<br/>
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						
+						<ul class="footer_contact col-lg-9 col-md-9 col-sm-9 hidden-xs">
+							<li><span style="font-size: 16px; color: #CCCCCC;">关于优速</span></li>
+							<li>电话：<i>400-000-0000</i></li>
+							<li>服务时间：周一到周五早8:00到晚5:00</li>
+							<li>邮箱：xxx@163.com</li>
+							<li>地址：公司地址</li>
+						</ul>
+						
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						
+						<ul class="footer_contact col-lg-9 col-md-9 col-sm-9 hidden-xs">
+							<li><span style="font-size: 16px; color: #CCCCCC;">优速服务</span></li>
+							<li>电话：<i>400-000-0000</i></li>
+							<li>服务时间：周一到周五早8:00到晚5:00</li>
+							<li>邮箱：xxx@163.com</li>
+							<li>地址：公司地址</li>
+						</ul>
+						
+					</div>
+					
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<ul class="footer_nav hidden-xs">
+							<li><a href="#">新闻中心</a></li>
+							<li><a href="#">产品中心</a></li>
+							<li><a href="#">招聘中心</a></li>
+							<li><a href="#">关于我们</a></li>
+						</ul>
+						<p class="copyr">
+							<a href="http://www.miitbeian.gov.cn">
+								Copyright © 公司版权所有鲁ICP备13009425号 
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.11.3.js" ></script>
+		<script type="text/javascript" src="js/main.js" ></script>
+		<script type="text/javascript" src="js/TouchSlide.1.1.js" ></script>
+		<script src="js/distpicker.data.js"></script>
+	  <script src="js/distpicker.js"></script>
+	  
+		
+	</body>
+	<script>
+		$(function(){
+			$("#new2Table tr").click(function(){
+					location.href="newsdetail.html";
+				})
+			
+		})
+	</script>
+</html>
