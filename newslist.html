@@ -237,7 +237,7 @@
 										<table id="new2Table">
 											<tr style="">
 												<td>
-													<img style="height: 90px; width: 90px;"  src="images/about_p.jpg">
+													<div class="date2" style="font-size: 24px; color: #46B8DA;height: 90px; width: 90px;"></div>
 												</td>
 												<td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;">
 													<br/>
@@ -709,6 +709,7 @@
 			$(function(){
 				
 				$(".date1").html(new Date().toDateString());
+				$(".date2").html(new Date().getDate());
 				$("#about2").hide();
 				$("#many").click(function(){
 					$(".editor").append($(".editor").html());

@@ -118,3 +118,50 @@ function browserRedirect() {
 } 
 
 browserRedirect(); */
+
+function language(data){
+	
+	sessionStorage.setItem("YSlanguage",data);
+	location.href="index.html";
+}
+
+$(function(){
+	var language =   sessionStorage.getItem("YSlanguage");
+	
+	if(language =='zh'){
+		$(".footerAbout").html("关于优速");
+		$(".footerMobile").html("电话");
+		$(".footerTime").html("服务时间");
+		$(".footerEmail").html("邮箱");
+		$(".footerAddress").html("地址");
+		
+		$(".messageAddress").html("地区");
+		$(".messageName").html("姓名");
+		$(".messageTel").html("电话");
+		$(".messageRemark").html("备注");
+		
+		
+	}else if(language =='cn'){
+		$(".footerAbout").html("關於優速");
+		$(".footerMobile").html("電話");
+		$(".footerTime").html("服務時間");
+		$(".footerEmail").html("郵箱");
+		$(".footerAddress").html("地址");
+		
+		$(".messageAddress").html("地區");
+		$(".messageName").html("姓名");
+		$(".messageTel").html("電話");
+		$(".messageRemark").html("備註");
+	}else if(language =='en'){
+		$(".footerAbout").html("ABOUT");
+		$(".footerMobile").html("TEL");
+		$(".footerTime").html("TIME");
+		$(".footerEmail").html("EMAIL");
+		$(".footerAddress").html("ADDRESS");
+		
+		$(".messageAddress").html("AREA");
+		$(".messageName").html("NAME");
+		$(".messageTel").html("TEL");
+		$(".messageRemark").html("REMARK");
+	}			
+})
