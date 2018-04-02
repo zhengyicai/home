@@ -130,7 +130,7 @@ function language(data){
 
 $(function(){
 	var language =   sessionStorage.getItem("YSlanguage");
-	
+	var indexNewsCount = 0;
 	$.ajax({
 			type:"get",
 			url:$base_path+"para/findAll", 
@@ -234,6 +234,7 @@ $(function(){
 							}else if(data.data[i].level =='30'){
 								var title1 =  language =="cn"?data.data[i].cntitle:language =="en"?data.data[i].entitle:data.data[i].title;
 								$(".navNewsListChild").html($(".navNewsListChild").html()+'<td><a class="navTwoTitle" href="'+data.data[i].href+'" style="background-color: #646464;">'+title1+'</a></td>' );
+									
 							}
 							
 						}

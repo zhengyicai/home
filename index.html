@@ -186,20 +186,20 @@
 		<div class="content_bd" style="overflow: hidden;">
 			<div id="slideBox" class="slideBox"  >
 				<div class="bd">
-					<ul>
-						<li>
+					<ul class="banner_image">
+						<!--<li>
 							<a class="pic" href="#"><img src="images/banner2.jpg" /></a>
 						</li>
 						<li>
 							<a class="pic" href="#"><img src="images/banner3.jpg" /></a>
-						</li>
+						</li>-->
 					</ul>
 				</div>
 				<span class="prev hidden-xs hidden-sm"></span>
 				<span class="next hidden-xs hidden-sm"></span>
-				<ul class="hd">
-					<li></li>
-					<li></li>
+				<ul class="hd banner_image_count">
+					<!--<li></li>
+					<li></li>-->
 				</ul>
 			</div>
 			
@@ -220,11 +220,11 @@
 									<div >
 									    <div >
 									        <div class="find_nav_list" >
-									            <ul >
+									            <ul  class="navNewsListChildRank" >
 									        
-									                <li><a href="#" class="active" >集团新闻</a></li>
-									                <li><a href="#">地方动态</a></li>
-									                <li><a href="#">媒体报道</a></li>
+									                <li><a href="#" class="active" id="indexNewsOne">集团新闻</a></li>
+									                <li><a href="#" id="indexNewsTwo">地方动态</a></li>
+									                <li><a href="#" id="indexNewsThree">媒体报道</a></li>
 									                <li><a></a></li>
 									                <li><a></a></li>
 									                <li><a></a></li>
@@ -245,9 +245,9 @@
 									    </div>
 							</li>
 							<li class="pro_item col-lg-2 col-md-2 col-sm-2 col-xs-2" style="text-align: left;margin-left: -10px;">
-								<span style="font-size: 15px;"><b style="color: #000000;">万科A000002</b></span>
-								<div style="font-size: 35px;color: #398439;"><b>32.01</b><b style="font-size: 20px;">RMB</b></div>
-								<span style="font-size: 8px;">截至 2018-03-09 16:30:03</span>
+								<span style="font-size: 15px;"><b style="color: #000000;" id="gupiaotitle">万科A000002</b></span>
+								<div style="font-size: 35px;color: #398439;"><b id="price">32.01</b><b style="font-size: 20px;">RMB</b></div>
+								<span style="font-size: 8px;" id="gupiaoremark">截至 2018-03-09 16:30:03</span>
 							</li>
 							
 						</ul>
@@ -267,10 +267,10 @@
 			<div class="container" >
 						
 					<div class="box1">
-						<div><img src="images/bannerB.png" alt=""></div>
+						<!--
 						<div><img src="images/bannerC.png" alt=""></div>
 						<div><img src="images/bannerB.png" alt=""></div>
-						<div><img src="images/bannerC.png" alt=""></div>
+						<div><img src="images/bannerC.png" alt=""></div>-->
 						
 					</div>
 
@@ -370,35 +370,7 @@
 		<script type="text/javascript" src="js/main.js" ></script>
 		<script type="text/javascript" src="js/TouchSlide.1.1.js" ></script>
 		<script>
-			TouchSlide({ 
-				slideCell:"#slideBox", 
-				titCell:".hd li",
-				mainCell:".bd ul",
-				effect:"leftLoop"
-//				autoPlay:true//自动播放
-			});
-			TouchSlide({ 
-				slideCell:"#slideBox",
-				mainCell:".bd ul",
-				effect:"leftLoop",
-				autoPlay:true//自动播放
-			});
 			
-			
-			
-			TouchSlide({ 
-				slideCell:"#slideBoxMobile", 
-				titCell:".hd li",
-				mainCell:".bd ul",
-				effect:"leftLoop"
-			//	autoPlay:true//自动播放
-			});
-			TouchSlide({ 
-				slideCell:"#slideBoxMobile",
-				mainCell:".bd ul",
-				effect:"leftLoop",
-				autoPlay:true//自动播放
-			});
 			
 			
 			
@@ -528,6 +500,121 @@
 
 			
 		}
+		</script>
+		<script>
+			$(function(){
+				var language =   sessionStorage.getItem("YSlanguage");
+				//获取幻灯片
+				$.ajax({
+				type:"get",
+				url:$base_path+"sysBanner/findAll?title=banner", 
+	            dataType:"json",
+				success:function(data){ 
+					if(data.code==0000){
+						for(var i = 0 ;i<data.data.length;i++){
+							var banner = '<li><a class="pic" target="_blank" href="'+data.data[i].href+'"><img src="'+$image_path+data.data[i].imageUrl+'" /></a></li>';  
+							$(".banner_image").html($(".banner_image").html()+banner);
+							$(".banner_image_count").html($(".banner_image_count").html()+"<li></li>");
+						}
+						
+
+					}
+					
+					TouchSlide({ 
+						slideCell:"#slideBox", 
+						titCell:".hd li",
+						mainCell:".bd ul",
+						effect:"leftLoop"
+		//				autoPlay:true//自动播放
+					});
+					TouchSlide({ 
+						slideCell:"#slideBox",
+						mainCell:".bd ul",
+						effect:"leftLoop",
+						autoPlay:true//自动播放
+					});
+					
+					
+					
+					TouchSlide({ 
+						slideCell:"#slideBoxMobile", 
+						titCell:".hd li",
+						mainCell:".bd ul",
+						effect:"leftLoop"
+					//	autoPlay:true//自动播放
+					});
+					TouchSlide({ 
+						slideCell:"#slideBoxMobile",
+						mainCell:".bd ul",
+						effect:"leftLoop",
+						autoPlay:true//自动播放
+					});
+					
+					
+				}, 
+				error:function(data){ 
+					//alert("服务器跑丢了......");
+				} 
+				
+				
+				
+				
+				
+				})
+				
+				//获取广告
+				$.ajax({
+						type:"get",
+						url:$base_path+"sysBanner/findAll?title=index_ban", 
+			            dataType:"json",
+						success:function(data){ 
+							if(data.code==0000){
+								for(var i = 0 ;i<data.data.length;i++){
+									var banner =  '<div><a target="_blank" href="'+data.data[i].href+'"><img src="'+$image_path+data.data[i].imageUrl+'" alt=""></a></div>';
+									$(".box1").html($(".box1").html()+banner);	
+								}
+								
+								
+								
+							}
+						}, 
+						error:function(data){ 
+							//alert("服务器跑丢了......");
+						} 
+							
+				});	
+				
+				
+				$.ajax({
+						type:"get",
+						url:$base_path+"para/findAll?paraName=shares", 
+			            dataType:"json",
+						success:function(data){ 
+							if(data.code==0000){
+								var title =  language =="cn"?data.data[0].cnparaValue:language =="en"?data.data[0].enparaValue:data.data[0].paraValue;
+								var remark =  language =="cn"?"截止":language =="en"?"End":"截止";
+								
+								$("#gupiaoremark").html(remark+data.data[0].remark);
+								$("#gupiaotitle").html(title);
+								$("#price").html(data.data[0].paraCnName);
+								
+								
+							}
+						}, 
+						error:function(data){ 
+							//alert("服务器跑丢了......");
+						} 
+							
+				});
+				
+				
+				
+				
+				
+				
+			})	
+			
+			
 		</script>
 		
 		
