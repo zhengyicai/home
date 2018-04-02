@@ -1,4 +1,5 @@
 var $base_path = 'http://120.78.67.233:8080/web/home/';
+//var $base_path = 'http://localhost:8080/web/home/';
 var $image_path = 'http://120.78.67.233:8080/image/';
 
 //手机导航
@@ -215,6 +216,20 @@ $(function(){
 							}else if(data.data[i].level =='30'){
 								var title =  language =="cn"?data.data[i].cntitle:language =="en"?data.data[i].entitle:data.data[i].title;
 								$(".navAboutChild").html($(".navAboutChild").html()+'<td><a class="navTwoTitle" href="'+data.data[i].href+'" style="background-color: #646464;">'+title+'</a></td>' );
+								//关于分类
+								if(data.data[i].id=="a7052e3ee26e480e84568560d2d3cfa9"){
+									
+									$("#aboutOne").html(title);
+									$("#aboutDetail").html(title);
+									
+								}
+								if(data.data[i].id=="cf62dfb4bba842b287982d01beabeb52"){
+									$("#aboutTwo").html(title);
+								}
+								if(data.data[i].id=="30449cac5f69437bb73517f6f06bad5a"){
+									$("#aboutThree").html(title);
+								}
+								
 								
 							}
 							
@@ -234,7 +249,19 @@ $(function(){
 							}else if(data.data[i].level =='30'){
 								var title1 =  language =="cn"?data.data[i].cntitle:language =="en"?data.data[i].entitle:data.data[i].title;
 								$(".navNewsListChild").html($(".navNewsListChild").html()+'<td><a class="navTwoTitle" href="'+data.data[i].href+'" style="background-color: #646464;">'+title1+'</a></td>' );
+								//首页新闻
+								if(data.data[i].id=="758ca2121fab432eb2202e46018d0c23"){
 									
+									$("#indexNewsOne").html(title1);
+								}
+								if(data.data[i].id=="0cbb9844fca846e98bb09dad9bfe5f94"){
+									$("#indexNewsTwo").html(title1);
+								}
+								if(data.data[i].id=="6490e08206ba431bbedfe6c2aabbb065"){
+									$("#indexNewsThree").html(title1);
+								}
+								
+								
 							}
 							
 						}
@@ -302,7 +329,7 @@ $(function(){
 				}
 			}, 
 			error:function(data){ 
-				alert("服务器跑丢了......");
+				//alert("服务器跑丢了......");
 			} 
 				
 	});	

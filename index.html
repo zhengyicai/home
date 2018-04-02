@@ -212,8 +212,8 @@
 					<div class="row">					
 						<ul class="product_list">
 							<li class="pro_item col-lg-6 col-md-6 col-sm-6 col-xs-6">
-								<span><b style="font-size: 18px; color: #646464">杭钢集团与万科集团正式签约 资产包合作落定</b></span>
-								<div style="margin-top: 30px;">3月2日下午，杭钢集团与万科集团在杭州举行资产包合作签约仪式。此次双方合作的资源包含8个项目，分布在杭州、嘉兴、台州、马鞍山、诸暨共5个城市。会议由浙江万科南都房地产有限公司副总经理周广主持，杭钢集团董事、总会计师汤民强...</div>
+								<span><b style="font-size: 18px; color: #646464" id="indexArtTitle">杭钢集团与万科集团正式签约 资产包合作落定</b></span>
+								<div style="margin-top: 30px;" id="indexArtContent">3月2日下午，杭钢集团与万科集团在杭州举行资产包合作签约仪式。此次双方合作的资源包含8个项目，分布在杭州、嘉兴、台州、马鞍山、诸暨共5个城市。会议由浙江万科南都房地产有限公司副总经理周广主持，杭钢集团董事、总会计师汤民强...</div>
 							</li>
 							<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-4  tabslist">
 								
@@ -238,10 +238,15 @@
 									</div>
 									
 									    <div id="slider1" class="swipe">
-									      	<span>2018-03-02</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>杭钢集团与万科集团正式签约团... </span><br/>
-									      	<span>2018-03-02</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>杭钢集团与万科集团正式签约团...</span><br/>
-									      	<span>2018-03-02</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>杭钢集团与万科集团正式签约团... </span><br/>
-									
+									    	<div id="slider1Div1" class="slider1Div">
+										      	
+											</div>
+											<div id="slider1Div2" class="slider1Div" style="display: none;">
+										      	
+											</div>
+											<div id="slider1Div3" class="slider1Div" style="display: none;">
+										      	
+											</div>
 									    </div>
 							</li>
 							<li class="pro_item col-lg-2 col-md-2 col-sm-2 col-xs-2" style="text-align: left;margin-left: -10px;">
@@ -407,7 +412,7 @@
 			}
 			
 			//选项卡
-			$("#slider1").html($(this).text());
+			//$("#slider1").html($(this).text());
 			
 			
 		});
@@ -606,6 +611,68 @@
 						} 
 							
 				});
+				function fmtDate(obj){
+				    var date =  new Date(obj);
+				    var y = 1900+date.getYear();
+				    var m = "0"+(date.getMonth()+1);
+				    var d = "0"+date.getDate();
+				    return y+"-"+m.substring(m.length-2,m.length)+"-"+d.substring(d.length-2,d.length);
+				}
+				
+				$.ajax({
+						type:"get",
+						url:$base_path+"sysArticle/findAll", 
+			            dataType:"json",
+						success:function(data){ 
+							if(data.code==0000){
+								for(var i = 0;i<data.data.length;i++){
+									var la = language =="cn"?data.data[i].cntitle:language =="en"?data.data[i].entitle:data.data[i].title;
+									
+									var title = '<span>'+fmtDate(data.data[i].createTime)+'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>'+la.substr(0,15)+'... </span><br/>';
+									if(data.data[i].genre == '10'){
+										if(data.data[i].top =='0'){
+											var content = language =="cn"?data.data[i].cncontent:language =="en"?data.data[i].encontent:data.data[i].content;		
+											$("#indexArtTitle").html(la);
+											$("#indexArtContent").html(content.substr(0,100));
+										}else{
+											$("#slider1Div1").html($("#slider1Div1").html()+title);	
+										}
+										
+									}else if(data.data[i].genre == '20'){
+										$("#slider1Div2").html($("#slider1Div2").html()+title);
+									}else if(data.data[i].genre == '30'){
+										$("#slider1Div3").html($("#slider1Div3").html()+title);
+									}
+								}
+								
+							}
+						}, 
+						error:function(data){ 
+							//alert("服务器跑丢了......");
+						} 
+							
+				});
+				
+				
+				$("#indexNewsOne").click(function(){
+					$("#slider1Div2").hide();
+					$("#slider1Div3").hide();
+					$("#slider1Div1").show();
+				});
+				$("#indexNewsTwo").click(function(){
+					$("#slider1Div3").hide();
+					$("#slider1Div1").hide();
+					$("#slider1Div2").show();
+				});
+				$("#indexNewsThree").click(function(){
+					$("#slider1Div1").hide();
+					$("#slider1Div2").hide();
+					$("#slider1Div3").show();
+				});
+				
+				
+				
+				
 				
 				
 				
