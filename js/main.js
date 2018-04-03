@@ -1,5 +1,5 @@
-var $base_path = 'http://120.78.67.233:8080/web/home/';
-//var $base_path = 'http://localhost:8080/web/home/';
+//var $base_path = 'http://120.78.67.233:8080/web/home/';
+var $base_path = 'http://localhost:8080/web/home/';
 var $image_path = 'http://120.78.67.233:8080/image/';
 
 //手机导航
