@@ -11,6 +11,8 @@ $(".menu_icon").click(function(){
 	}
 });
 
+
+
 $("#nav1 ul .navHover").mouseenter(function(){
 		$(".on11").css("background-color","white");
 	    $(".on11>a").css("color","#646464");
@@ -253,12 +255,17 @@ $(function(){
 								if(data.data[i].id=="758ca2121fab432eb2202e46018d0c23"){
 									
 									$("#indexNewsOne").html(title1);
+									$("#newsOne").html(title1);
+									$("#aboutDetailTitle").html(title1);
 								}
 								if(data.data[i].id=="0cbb9844fca846e98bb09dad9bfe5f94"){
 									$("#indexNewsTwo").html(title1);
+									$("#newsTwo").html(title1);
+									
 								}
 								if(data.data[i].id=="6490e08206ba431bbedfe6c2aabbb065"){
 									$("#indexNewsThree").html(title1);
+									$("#newsThree").html(title1);
 								}
 								
 								
