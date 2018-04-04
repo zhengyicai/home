@@ -225,27 +225,25 @@
 								<div class="page_content">
 						<div class="row">
 							<div class="product_pic col-lg-7">
-								<img src="upload/pic02.jpg"/>
+								<img src="upload/pic02.jpg" id="productImg"/>
 							</div>
 							<div class="col-lg-5">
-								<h2 class="pro_name">
+								<h2 class="pro_name" id="productName">
 									田园布艺沙发组合客厅
 								</h2>
 								<ul class="pro_attr">
 									<li>
-										类型：田园风
+										类型：<span id="productStyle">田园风</span>
 									</li>
 									<li>
-										规格：卧室
+										规格：<span id="standard">田园风</span>
 									</li>
-									<li class="case_price">
+									<li class="case_price" >
 										价格：
-										<span>12000.00</span>
+										<span id="price">12000.00</span>
 									</li>
-									<li>
-										<del>市场价：16000.00</del>
-									</li>
-									<li class="case_tag">									
+								
+									<li class="case_tag" id="para">									
 										<span>高档/厚实</span>
 										<span>雪尼尔面料</span>
 										<span>高弹海棉</span>
@@ -258,7 +256,7 @@
 							<div class="product_infor_hd">
 								详情信息
 							</div>
-							<div class="product_infor_bd">
+							<div class="product_infor_bd" id="content">
 								产品详细信息
 							</div>
 						</div>
@@ -294,27 +292,25 @@
 								<div class="page_content">
 						<div class="row">
 							<div class="product_pic col-lg-7">
-								<img src="upload/pic02.jpg"/>
+								<img src="upload/pic02.jpg" />
 							</div>
 							<div class="col-lg-5">
-								<h2 class="pro_name">
+								<h2 class="pro_name" >
 									田园布艺沙发组合客厅
 								</h2>
 								<ul class="pro_attr">
-									<li>
-										类型：田园风
+									<li >
+										类型：<span >田园风</span>
 									</li>
-									<li>
-										规格：卧室
+									<li >
+										规格：<span>田园风</span>
 									</li>
 									<li class="case_price">
 										价格：
-										<span>12000.00</span>
+										<span >12000.00</span>
 									</li>
-									<li>
-										<del>市场价：16000.00</del>
-									</li>
-									<li class="case_tag">									
+									
+									<li class="case_tag" >									
 										<span>高档/厚实</span>
 										<span>雪尼尔面料</span>
 										<span>高弹海棉</span>
@@ -327,7 +323,7 @@
 							<div class="product_infor_hd">
 								详情信息
 							</div>
-							<div class="product_infor_bd">
+							<div class="product_infor_bd" >
 								产品详细信息
 							</div>
 						</div>
@@ -388,8 +384,55 @@
 		<script type="text/javascript" src="js/TouchSlide.1.1.js" ></script>
 		<script src="js/distpicker.data.js"></script>
 	  <script src="js/distpicker.js"></script>
+	  <script type="text/javascript">
+	  	var language =   sessionStorage.getItem("YSlanguage");
+			//获取当前产品的详情
+			(function($){
+			$.getUrlParam = function(name)
+			{
+			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r!=null) return unescape(r[2]); return null;
+			}
+			})(jQuery);
+			$(function(){
+			
+			 		//alert($.getUrlParam('id'));
+			 		
+			 		$.ajax({
+					type:"get",
+					url:$base_path+"sysProduct/findAll", 
+		            dataType:"json",
+					success:function(data){
+						
+						if(data.code=='0000'){
+							//for(var i = 0;i<data.data.length;i++){
+								var la = language =="cn"?data.data[0].cntitle:language =="en"?data.data[0].entitle:data.data[0].title;
+								
+								var content = language =="cn"?data.data[0].cncontent:language =="en"?data.data[0].encontent:data.data[0].content;
+								
+								$("#productImg").attr("src",$image_path+data.data[0].img);
+								$("#productName").html(la);
+								$("#para").html(data.data[0].para);
+								$("#standard").html(data.data[0].standard);
+								$("#productStyle").html(data.data[0].style);
+								$("#content").html(content);
+								
+								
+							//}
+							
+						}	
+						
+					},
+					error:function(data){ 
+						//alert("服务器跑丢了......");
+					} 
+							
+				});	
+			})
+	  </script>
 	  <script>
-	  	
+
 	  	$(function(){
 	  		
 	  		

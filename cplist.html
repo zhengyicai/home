@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/global.css" />
 		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/pageNav.css" />
 		
 <style type="text/css">
 
@@ -184,13 +185,13 @@
 			</div>
 		</div>
 		<div class="content_bd" style="overflow: hidden;">
-			<img src="images/banner2.jpg" style="height: 100px; width: 100%;">
+			<img src="images/banner2.jpg" id="cplistban1" style="height: 100px; width: 100%;">
 			<div class="page_nav_box" style="width:100%;border-bottom: 1px solid #eee;" >
 				<div class="container" style="height: 60px;">
 					<div class="row">
 						<div class="page_pos col-lg-10  col-sm-8 text-center">
 							<span></span>
-							<a href="#">产品中心</a>
+							<a href="#" class="navCplist"> 产品中心</a>
 							
 							
 						</div>
@@ -222,8 +223,8 @@
 			<div class="container" id="about1" >
 					<div class="col-lg-9  col-sm-8" style="border-right: 1px solid #eee;"  >
 						<div class="page_content">
-							<ul class="mod_list row mod_list_2">
-								<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+							<ul class="mod_list row mod_list_2 pc_cplist">
+								<!--<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
 									<a class="pro_pic" href="cpdetail.html">
 										<img src="upload/pic02.jpg"/>
 									</a>
@@ -258,11 +259,11 @@
 										<img src="upload/pic02.jpg"/>
 									</a>
 									<a href="#" class="pro_tit">热销产品一</a>
-								</li>
+								</li>-->
 							</ul>
 							<br/>
 							<!--分页-->
-							<ul class="pagination mod_pagination" style="color: #46B8DA;">
+							<!--<ul class="pagination mod_pagination" style="color: #46B8DA;">
 							    <li>
 							      <a href="#" aria-label="Previous">
 							        <span aria-hidden="true">上一页</span>
@@ -276,15 +277,20 @@
 							        <span aria-hidden="true">下一页</span>
 							      </a>
 							    </li>
-							</ul>
+							</ul>-->
+							<footer>
+					            <nav aria-label="Page navigation" class="page-nav-outer" id="PageNavId">
+					                
+					            </nav>
+					        </footer>
 						</div>
 					</div>
 						
 					
 					<div class="col-lg-3  col-sm-4" style="padding-top: 15px;"  >
-						<img class="about1"  src="images/about2.jpg"><br/>
-						<img class="about1"   src="images/about3.png"><br/>
-						<img class="about1"  src="images/about3.png"><br/>
+						<img class="about1" id="cplistban2"   src="images/about2.jpg"><br/>
+						<img class="about1"  id="cplistban3"   src="images/about3.png"><br/>
+						<img class="about1"  id="cplistban4"  src="images/about3.png"><br/>
 						
 					</div>
 				
@@ -340,7 +346,7 @@
 							</ul>
 							<br/>
 							<!--分页-->
-							<ul class="pagination mod_pagination" style="color: #46B8DA;">
+							<ul class="pagination mod_pagination" style="color: #46B8DA;" id="pageCount">
 							    <li>
 							      <a href="#" aria-label="Previous">
 							        <span aria-hidden="true">上一页</span>
@@ -355,6 +361,7 @@
 							      </a>
 							    </li>
 							</ul>
+							
 						</div>
 			
 		</div>	
@@ -414,7 +421,206 @@
 		<script type="text/javascript" src="js/TouchSlide.1.1.js" ></script>
 		<script src="js/distpicker.data.js"></script>
 	  <script src="js/distpicker.js"></script>
+	  <script type="text/javascript" src="js/pageNav.js" ></script>
 	  
 		
 	</body>
+	<script>
+		$(function(){
+			var language =   sessionStorage.getItem("YSlanguage");
+			//获取广告
+				$.ajax({
+						type:"get",
+						url:$base_path+"sysBanner/findAll?title=cplist_ban", 
+			            dataType:"json",
+						success:function(data){ 
+							if(data.code==0000){
+								for(var i = 0 ;i<data.data.length;i++){
+										if(data.data[i].top =='1'){
+											
+											$("#cplistban1").attr("src",$image_path+data.data[i].imageUrl);
+											
+										}else if(data.data[i].top =='2'){
+											
+											$("#cplistban2").attr("src",$image_path+data.data[i].imageUrl);
+										}else if(data.data[i].top =='3'){
+											$("#cplistban3").attr("src",$image_path+data.data[i].imageUrl);
+										}else if(data.data[i].top =='4'){
+											$("#cplistban4").attr("src",$image_path+data.data[i].imageUrl);
+										}
+										
+										
+								}
+								
+								
+							}
+						}, 
+						error:function(data){ 
+							//alert("服务器跑丢了......");
+						} 
+							
+				});	
+				
+				function func(pageCount){
+					
+					//alert(pageCount);
+					/*$.ajax({
+						type:"get",
+						url:$base_path+"sysProduct/findAll?pageNumber="+pageCount, 
+			            dataType:"json",
+						success:function(data){
+							$(".pc_cplist").html("");
+							if(data.code==0000){
+								for(var i = 0;i<data.data.length;i++){
+									var la = language =="cn"?data.data[i].cntitle:language =="en"?data.data[i].entitle:data.data[i].title;
+									var pro =   '<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6"><a class="pro_pic" href="cpdetail.html"><img src="'+$image_path+data.data[i].img+'"/></a><a href="#" class="pro_tit">'+la+'</a></li>';
+									$(".pc_cplist").append(pro);
+								}
+							}	
+							
+						},
+						error:function(data){ 
+							//alert("服务器跑丢了......");
+						} 
+							
+					});	
+					*/
+					
+					
+				}
+				
+				
+				
+				$.ajax({
+						type:"get",
+						url:$base_path+"sysProduct/findAll", 
+			            dataType:"json",
+						success:function(data){ 
+							if(data.code==0000){
+								for(var i = 0;i<data.data.length;i++){
+									var la = language =="cn"?data.data[i].cntitle:language =="en"?data.data[i].entitle:data.data[i].title;
+									var pro =   '<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6"><a class="pro_pic" href="cpdetail.html"><img src="'+$image_path+data.data[i].img+'"/></a><a href="#" class="pro_tit">'+la+'</a></li>';
+									$(".pc_cplist").append(pro);
+								}
+								//$("#pageCount")
+							//分页	
+							 var pageNavObj = null;
+					        jQuery(document).ready(function($) {
+					            //初始化
+					            //pageNavCreate("PageNav",200,1,pageNavCallBack);
+					            
+					            pageNavObj = new PageNavCreate("PageNavId",{
+					                pageCount:data.page.pageCount,//总页数
+					                currentPage:data.page.pageNumber,//当前页
+					                perPageNum:5,//每页按钮数
+					            });
+					            pageNavObj.afterClick(pageNavCallBack);
+					        });
+					
+					        //翻页按钮点击后触发的回调函数
+					        function pageNavCallBack(clickPage){
+					            //clickPage是被点击的目标页码
+					            //console.log(clickPage);
+					
+					            //一般来说可以在这里通过clickPage,执行AJAX请求取数来重写页面
+					
+					            //最后别忘了更新一遍翻页导航栏
+					            //pageNavCreate("PageNav",pageCount,clickPage,pageNavCallBack);
+					            pageNavObj = new PageNavCreate("PageNavId",{
+					                pageCount:getPageSet().pageCount,//总页数
+					                currentPage:clickPage,//当前页
+					                perPageNum:getPageSet().perPageNum,//每页按钮数
+					            });
+					            pageNavObj.afterClick(pageNavCallBack);
+					        }
+					
+					
+					
+					
+					        //本示例页的一些js
+					        jQuery(document).ready(function($) {
+					            $("#testBtn").click(function(event) {
+					                pageNavObj = new PageNavCreate("PageNavId",{
+					                    pageCount:getPageSet().pageCount,//总页数
+					                    currentPage:getPageSet().currentPage,//当前页
+					                    perPageNum:getPageSet().perPageNum,//每页按钮数
+					                });
+					                pageNavObj.afterClick(pageNavCallBack);
+					            });
+					            $(".test-box input").keydown(function(event) {
+					                if(event.which == 13){
+					                    pageNavObj = new PageNavCreate("PageNavId",{
+					                        pageCount:getPageSet().pageCount,//总页数
+					                        currentPage:getPageSet().currentPage,//当前页
+					                        perPageNum:getPageSet().perPageNum,//每页按钮数
+					                    });
+					                    pageNavObj.afterClick(pageNavCallBack);
+					                }
+					            });
+					            $("#pageNavStyle").change(function(event) {
+					                var selectVal = $(this).val();
+					                //console.log(selectVal);
+					                if(selectVal==0){
+					                    $("#PageNavId").removeClass('dark');
+					                    $("footer").removeClass('dark-footer');
+					                }else if(selectVal==1){
+					                    $("#PageNavId").addClass('dark');
+					                    $("footer").addClass('dark-footer');
+					                }
+					            });
+					
+					        });
+					        //本示例页的一些js
+					        function getPageSet(){
+					            var obj = {
+					                pageCount:null,//总页数
+					                currentPage:null,//当前页
+					                perPageNum:null,//每页按钮数
+					            }
+					            if($("#testPageCount").val() && !isNaN(parseInt($("#testPageCount").val()))){
+					                obj.pageCount = parseInt($("#testPageCount").val());
+					            }else{
+					                obj.pageCount = parseInt($(".page-input-box > input").attr("placeholder"));
+					            }
+					
+					            if($("#testCurrentPage").val() && !isNaN(parseInt($("#testCurrentPage").val()))){
+					                obj.currentPage = parseInt($("#testCurrentPage").val());
+					                obj.currentPage = (obj.currentPage<=obj.pageCount ? obj.currentPage : obj.pageCount);
+					            }else{
+					                obj.currentPage = 1;
+					            }
+					
+					
+					
+					            if($("#testPerPageNum").val() && !isNaN(parseInt($("#testPerPageNum").val()))){
+					                obj.perPageNum = parseInt($("#testPerPageNum").val());
+					            }else{
+					                obj.perPageNum = null;
+					            }
+					
+					            return obj;
+					        }
+					        	
+								
+								
+								
+								
+							}
+						}, 
+						error:function(data){ 
+							//alert("服务器跑丢了......");
+						} 
+							
+				});	
+			
+			
+		})
+		
+		
+		
+	</script>
+	<script type="text/javascript">
+       
+    </script>
+	
 </html>
