@@ -75,6 +75,10 @@
 		.box1:hover div{ width: 20%; }
 		.box1 div:hover{ width: 40%; }
 
+a{
+	color:#666666;
+	text-decoration:none; 
+}
 
 
 </style>
@@ -161,9 +165,9 @@
 							<div class="indexBanner1">
 			        			<table style="color: white;">
 			        				<tr>
-			        				<td><a class="navTwoTitle"  onclick="language('zh')" style="background-color: #646464;color: white;">中文简体</a></td>
-		        					<td><a class="navTwoTitle"  onclick="language('cn')" style="background-color: #646464; color: white;">中文繁体</a></td>
-		        					<td><a class="navTwoTitle"  onclick="language('en')" style="background-color: #646464; color: white;">EN</a></td>
+			        				<td><a class="navTwoTitle"  onclick="Language('zh')" style="background-color: #646464;color: white;">中文简体</a></td>
+		        					<td><a class="navTwoTitle"  onclick="Language('cn')" style="background-color: #646464; color: white;">中文繁体</a></td>
+		        					<td><a class="navTwoTitle"  onclick="Language('en')" style="background-color: #646464; color: white;">EN</a></td>
 			        				</tr>
 			        			</table>
 			        		</div>
@@ -218,6 +222,7 @@
 					<div class="col-lg-9  col-sm-8" style="border-right: 1px solid #eee;padding-top: 15px;"  >
 						<div id="aboutShow1">
 							<div>
+								<a  id="NewsHrefOne">
 								<div  class="col-sm-6" style="height: 220px; " >
 									<div class="date1"  style="font-size: 25px; color: #46B8DA;"></div>
 									<div style="height: 140px;">
@@ -227,6 +232,7 @@
 									<div style="width: 100%; background-color: #EEEEEE; height: 45px; line-height: 45px; color: #46B8DA; font-weight: bold; text-align: center;" class="manyNews">更多</div>
 									
 								</div>
+								</a>
 								<img src="images/about3.png" class="col-sm-6 " id="newsBan2" style="height: 220px;">
 							</div>
 							
@@ -247,6 +253,7 @@
 						</div>
 						<div id="aboutShow2" style="display: none;">
 							<div>
+								<a  id="NewsHrefTwo">
 								<div  class="col-sm-6" style="height: 220px; " >
 									<div class="date1Two" style="font-size: 25px; color: #46B8DA;"></div>
 									<div style="height: 140px;">
@@ -256,6 +263,7 @@
 									<div style="width: 100%; background-color: #EEEEEE; height: 45px; line-height: 45px; color: #46B8DA; font-weight: bold; text-align: center;" class="manyNews">更多</div>
 									
 								</div>
+								</a>
 								<img src="images/about3.png" class="col-sm-6 " id="newsBan3" style="height: 220px;">
 							</div>
 							
@@ -274,6 +282,7 @@
 						</div>
 						<div id="aboutShow3" style="display: none;">
 							<div>
+								<a  id="NewsHrefThree">	
 								<div  class="col-sm-6" style="height: 220px; " >
 									<div class="date1Three" style="font-size: 25px; color: #46B8DA;"></div>
 									<div style="height: 140px;">
@@ -283,6 +292,7 @@
 									<div style="width: 100%; background-color: #EEEEEE; height: 45px; line-height: 45px; color: #46B8DA; font-weight: bold; text-align: center;" class="manyNews">更多</div>
 									
 								</div>
+								</a>
 								<img src="images/about3.png" class="col-sm-6 " id="newsBan4" style="height: 220px;">
 							</div>
 							
@@ -752,8 +762,9 @@
 											$(".newsOneTitle").html(la.substr(0,30)+"...");
 											$(".newsOneMessage").html(content.substr(0,150)+"...");
 											$(".date1").html(new Date(data.data[i].createTime).toDateString());
+											$("#NewsHrefOne").attr("href","newsdetail.html?id="+data.data[i].id);
 										}else if(data.data[i].top != '0'){
-												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content.substr(0,200)+'<br></p></td></tr><tr></tr>';
+												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content.substr(0,200)+'<br></p></a></td></tr><tr></tr>';
 												if(count1<3){
 										   			$("#new2TableOne").html($("#new2TableOne").html()+rows);	
 												}
@@ -764,12 +775,12 @@
 									}else if(data.data[i].genre=='20'){
 										
 										if(data.data[i].top == '1'){
-											
+											$("#NewsHrefTwo").attr("href","newsdetail.html?id="+data.data[i].id);
 											$(".newsTwoTitle").html(la.substr(0,30)+"...");
 											$(".newsTwoMessage").html(content.substr(0,150)+"...");
 											$(".date1Two").html(new Date(data.data[i].createTime).toDateString());
 										}else{
-												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content.substr(0,200)+'<br></p></td></tr><tr></tr>';
+												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content.substr(0,200)+'<br></p></a></td></tr><tr></tr>';
 												if(count2<3){
 										   			$("#new2TableTwo").html($("#new2TableTwo").html()+rows);	
 												}
@@ -778,11 +789,12 @@
 										}
 									}else if(data.data[i].genre=='30'){
 										if(data.data[i].top == '1'){
+											$("#NewsHrefThree").attr("href","newsdetail.html?id="+data.data[i].id);
 											$(".newsThreeTitle").html(la.substr(0,30)+"...");
 											$(".newsThreeMessage").html(content.substr(0,150)+"...");
 											$(".date1Three").html(new Date(data.data[i].createTime).toDateString());
 										}else{
-												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content.substr(0,200)+'<br></p></td></tr><tr></tr>';
+												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content.substr(0,200)+'<br></p></a></td></tr><tr></tr>';
 												if(count3<3){
 										   			$("#new2TableThree").html($("#new2TableThree").html()+rows);	
 												}

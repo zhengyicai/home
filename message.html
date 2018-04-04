@@ -161,9 +161,9 @@
 							<div class="indexBanner1">
 			        			<table style="color: white;">
 			        				<tr>
-			        				<td><a class="navTwoTitle"  onclick="language('zh')" style="background-color: #646464;color: white;">中文简体</a></td>
-		        					<td><a class="navTwoTitle"  onclick="language('cn')" style="background-color: #646464; color: white;">中文繁体</a></td>
-		        					<td><a class="navTwoTitle"  onclick="language('en')" style="background-color: #646464; color: white;">EN</a></td>
+			        				<td><a class="navTwoTitle"  onclick="Language('zh')" style="background-color: #646464;color: white;">中文简体</a></td>
+		        					<td><a class="navTwoTitle"  onclick="Language('cn')" style="background-color: #646464; color: white;">中文繁体</a></td>
+		        					<td><a class="navTwoTitle"  onclick="Language('en')" style="background-color: #646464; color: white;">EN</a></td>
 			        				</tr>
 			        			</table>
 			        		</div>
@@ -179,13 +179,13 @@
 			</div>
 		</div>
 		<div class="content_bd" style="overflow: hidden;">
-			<img src="images/banner2.jpg" style="height: 100px; width: 100%;">
+			<img src="images/banner2.jpg" style="height: 100px; width: 100%;" id="message1">
 			<div class="page_nav_box" style="width:100%;border-bottom: 1px solid #eee;" >
 				<div class="container" style="height: 60px;">
 					<div class="row">
 						<div class="page_pos col-lg-10  col-sm-8 text-center">
 							<span></span>
-							<a href="#">投诉反馈</a>
+							<a href="#" class="navMessage">投诉反馈</a>
 							
 							
 						</div>
@@ -247,7 +247,7 @@
 														<i class="messageName">姓名</i><span>*</span>:
 													</label>
 													<div class="controls">
-														<input type="text" class="form-control" id="username" placeholder="请输入您的姓名..." />
+														<input type="text" class="form-control messageNameTitle" id="username" placeholder="请输入您的姓名..." />
 														<div class="tip" id="username-tip"></div>
 													</div>
 												</div>
@@ -256,21 +256,21 @@
 														<i class="messageTel">电话</i><span>*</span>：
 													</div>
 													<div class="controls">
-														<input type="text" class="form-control" id="userphone" placeholder="请输入您的电话..." />
+														<input type="text" class="form-control messageTelTitle" id="userphone" placeholder="请输入您的电话..." />
 														<div class="tip" id="userphone-tip"></div>
 													</div>
 												</div>
 												<div class="form-group">
 													<div class="control-label">
-														<i class="messageRemark">备注</i><span>*</span>：
+														<i class="messageRemark ">备注</i><span>*</span>：
 													</div>
 													<div class="controls">
-														<textarea type="text" class="form-control beizhu-control" id="userebeizhu" placeholder="请输入您的备注..." ></textarea>
+														<textarea type="text" class="form-control beizhu-control messageRemarkTitle" id="userebeizhu" placeholder="请输入您的备注..." ></textarea>
 														<div class="tip" id="userebeizhu-tip"></div>
 													</div>
 												</div> 					
 												<div class="form-group">
-													<button type="button" class="submint_btn messageSubmit">提交</button>
+													<button type="button" id="submit" class="submint_btn messageSubmit">提交</button>
 												</div>
 											</form>
 										</div>
@@ -279,9 +279,9 @@
 						
 					
 					<div class="col-lg-3  col-sm-4" style="padding-top: 15px;"  >
-						<img class="about1"  src="images/about2.jpg"><br/>
-						<img class="about1"   src="images/about3.png"><br/>
-						<img class="about1"  src="images/about3.png"><br/>
+						<img class="about1"  src="images/about2.jpg" id="message2"><br/>
+						<img class="about1"   src="images/about3.png" id="message3"><br/>
+						<img class="about1"  src="images/about3.png" id="message4"><br/>
 						
 					</div>
 				
@@ -328,7 +328,7 @@
 									姓名<span>*</span>:
 								</label>
 								<div class="controls">
-									<input type="text" class="form-control" id="username" placeholder="请输入您的姓名..." />
+									<input type="text" class="form-control messageNameTitle" id="username1" placeholder="请输入您的姓名..." />
 									<div class="tip" id="username-tip"></div>
 								</div>
 							</div>
@@ -337,16 +337,16 @@
 									电话<span>*</span>：
 								</div>
 								<div class="controls">
-									<input type="text" class="form-control" id="userphone" placeholder="请输入您的电话..." />
+									<input type="text" class="form-control messageTelTitle" id="userphone1" placeholder="请输入您的电话..." />
 									<div class="tip" id="userphone-tip"></div>
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="control-label">
+								<div class="control-label messageRemarkTitle">
 									备注：
 								</div>
 								<div class="controls">
-									<textarea type="text" class="form-control beizhu-control" id="userebeizhu" placeholder="请输入您的备注..." ></textarea>
+									<textarea type="text" class="form-control beizhu-control" id="userebeizhu1" placeholder="请输入您的备注..." ></textarea>
 									<div class="tip" id="userebeizhu-tip"></div>
 								</div>
 							</div> 					
@@ -412,7 +412,100 @@
 		<script type="text/javascript" src="js/TouchSlide.1.1.js" ></script>
 		<script src="js/distpicker.data.js"></script>
 	  <script src="js/distpicker.js"></script>
-	  
+	  <script>
+	  	
+	  	$(function(){
+	  		
+	  		$.ajax({
+				type:"get",
+				url:$base_path+"sysBanner/findAll?title=message_ban", 
+	            dataType:"json",
+				success:function(data){ 
+					if(data.code==0000){
+						for(var i = 0 ;i<data.data.length;i++){
+								if(data.data[i].top =='1'){
+									
+									$("#message1").attr("src",$image_path+data.data[i].imageUrl);	
+								
+								}else if(data.data[i].top =='2'){
+									$("#message2").attr("src",$image_path+data.data[i].imageUrl);
+								}else if(data.data[i].top =='3'){
+									$("#message3").attr("src",$image_path+data.data[i].imageUrl);
+								}else if(data.data[i].top =='4'){
+									
+									$("#message4").attr("src",$image_path+data.data[i].imageUrl);
+								}
+								
+								
+						}
+						
+						
+					}
+				}, 
+				error:function(data){ 
+					//alert("服务器跑丢了......");
+				} 
+							
+			});
+	  		
+	  		
+	  		$("#submit").click(function(){
+	  			
+	  			var per = {
+	  				province:$("#province1").val(),
+	  				city:$("#city1").val(),
+	  				country:$("#district1").val(),
+	  				userId:$("#username").val(),
+	  				title:$("#userphone").val(),
+	  				content:$("#userebeizhu").val(),
+	  				remark:""
+	  			
+	  			}
+	  			
+	  			if($("#username").val()==null || $("#username").val()=="" ){
+	  				alert("姓名不能为空");
+	  				return;
+	  			}
+	  			
+	  			if($("#userphone").val()==null || $("#userphone").val()=="" ){
+	  				alert("电话不能为空");
+	  				return;
+	  			}
+	  			if($("#userebeizhu").val()==null || $("#userebeizhu").val()=="" ){
+	  				alert("备注不能为空");
+	  				return;
+	  			}
+	  		
+	  			
+	  			/*$.post($base_path+"message/add",test,function(data){
+	  				
+	  				
+	  			})*/
+	  			
+	  		
+	  			$.ajax({
+					type:"post",
+					url:$base_path+"message/add", 
+		            dataType:"json",
+		            contentType:"application/json",
+		            
+		            data:JSON.stringify(per),
+					success:function(data){ 
+						if(data.code==0000){
+							alert(data.message);
+							
+						}
+					}, 
+					error:function(data){ 
+						//alert("服务器跑丢了......");
+					} 
+							
+				});
+	  			
+	  		})
+	  		
+	  	})
+	  </script>
 		
 	</body>
 </html>

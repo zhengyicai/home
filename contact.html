@@ -166,9 +166,9 @@
 							<div class="indexBanner1">
 			        			<table style="color: white;">
 			        				<tr>
-			        				<td><a class="navTwoTitle"  onclick="language('zh')" style="background-color: #646464;color: white;">中文简体</a></td>
-		        					<td><a class="navTwoTitle"  onclick="language('cn')" style="background-color: #646464; color: white;">中文繁体</a></td>
-		        					<td><a class="navTwoTitle"  onclick="language('en')" style="background-color: #646464; color: white;">EN</a></td>
+			        				<td><a class="navTwoTitle"  onclick="Language('zh')" style="background-color: #646464;color: white;">中文简体</a></td>
+		        					<td><a class="navTwoTitle"  onclick="Language('cn')" style="background-color: #646464; color: white;">中文繁体</a></td>
+		        					<td><a class="navTwoTitle"  onclick="Language('en')" style="background-color: #646464; color: white;">EN</a></td>
 			        				</tr>
 			        			</table>
 			        		</div>
@@ -184,13 +184,13 @@
 			</div>
 		</div>
 		<div class="content_bd" style="overflow: hidden;">
-			<img src="images/banner2.jpg" style="height: 100px; width: 100%;">
+			<img src="images/banner2.jpg" id="contact1" style="height: 100px; width: 100%;">
 			<div class="page_nav_box" style="width:100%;border-bottom: 1px solid #eee;" >
 				<div class="container" style="height: 60px;">
 					<div class="row">
 						<div class="page_pos col-lg-10  col-sm-8 text-center">
 							<span></span>
-							<a href="#">联系我们</a>
+							<a href="#" class="NavContact">联系我们</a>
 							
 							
 						</div>
@@ -222,37 +222,36 @@
 			<div class="container" id="about1" >
 					<div class="col-lg-9  col-sm-8" style="border-right: 1px solid #eee;"  >
 						<br/>
-						<b>联系优速国际</b>
+						<b class="footerAbout"></b>
 						<hr />
 						<div id="aboutShow1">
 							<ul class="footer_contact col-lg-6 col-md-6 col-sm-6 hidden-xs">
 							
-								<li>电话：<i>400-000-0000</i></li>
-								<li>服务时间：周一到周五早8:00到晚5:00</li>
-								<li>邮箱：xxx@163.com</li>
-								<li>地址：公司地址</li>
-								<li>服务时间：周一到周五早8:00到晚5:00</li>
+								<li ><i class="footerAbout">电话</i>：<i class="navTel">400-000-0000</i></li>
+								<li ><i class="footerTime">服务时间</i>：<i class="navTime">周一到周五早8:00到晚5:00</i></li>
+								<li><i class="footerEmail" >邮箱</i>：<i class="navEmail">xxx@163.com</i></li>
+								<li><i class="footerAddress">地址</i>：<i class="navAddress">公司地址</i></li>
 								
 							</ul>
 							<ul class="footer_contact col-lg-6 col-md-6 col-sm-6 hidden-xs">
 							
-								<li>电话：<i>400-000-0000</i></li>
+								<!--<li>电话：<i>400-000-0000</i></li>
 								<li>服务时间：周一到周五早8:00到晚5:00</li>
-								<li>邮箱：xxx@163.com</li>
+								<li>邮箱：xxx@163.com</li>-->
 								
 							</ul>
 							
 						</ul>
-						<img src="images/map.png" style="width: 100%;">
+						<img src="images/map.png" style="width: 100%;" id="contact2" >
 										
 						</div>
 					</div>
 						
 					
 					<div class="col-lg-3  col-sm-4" style="padding-top: 15px;"  >
-						<img class="about1"  src="images/about2.jpg"><br/>
-						<img class="about1"   src="images/about3.png"><br/>
-						<img class="about1"  src="images/about3.png"><br/>
+						<img class="about1" id="contact3"   src="images/about2.jpg"><br/>
+						<img class="about1" id="contact4"    src="images/about3.png"><br/>
+						<img class="about1" id="contact5"   src="images/about3.png"><br/>
 						
 					</div>
 				
@@ -277,7 +276,7 @@
 							<br/>
 							<ul class="col-xs-12">
 							
-								<li>电话：<i>400-000-0000</i></li>
+								<li>电话：<i class="navTel">400-000-0000</i></li>
 								<li>服务时间：周一到周五早8:00到晚5:00</li>
 								<li>邮箱：xxx@163.com</li>
 								<li>地址：公司地址</li>
@@ -286,9 +285,9 @@
 							</ul>
 							<ul class="col-xs-12">
 							
-								<li>电话：<i>400-000-0000</i></li>
+								<!--<li>电话：<i>400-000-0000</i></li>
 								<li>服务时间：周一到周五早8:00到晚5:00</li>
-								<li>邮箱：xxx@163.com</li>
+								<li>邮箱：xxx@163.com</li>-->
 								
 							</ul>
 							
@@ -354,7 +353,47 @@
 		<script type="text/javascript" src="js/TouchSlide.1.1.js" ></script>
 		<script src="js/distpicker.data.js"></script>
 	  <script src="js/distpicker.js"></script>
-	  
+	  <script>
+	  	$(function(){
+	  		
+	  		$.ajax({
+				type:"get",
+				url:$base_path+"sysBanner/findAll?title=contact_ban", 
+	            dataType:"json",
+				success:function(data){ 
+					if(data.code==0000){
+						for(var i = 0 ;i<data.data.length;i++){
+								if(data.data[i].top =='1'){
+									
+									$("#contact1").attr("src",$image_path+data.data[i].imageUrl);	
+								
+								}else if(data.data[i].top =='2'){
+									$("#contact2").attr("src",$image_path+data.data[i].imageUrl);
+								}else if(data.data[i].top =='3'){
+									$("#contact3").attr("src",$image_path+data.data[i].imageUrl);
+								}else if(data.data[i].top =='4'){
+									
+									$("#contact4").attr("src",$image_path+data.data[i].imageUrl);
+								}else if(data.data[i].top =='5'){
+									
+									$("#contact5").attr("src",$image_path+data.data[i].imageUrl);
+								}
+								
+								
+						}
+						
+						
+					}
+				}, 
+				error:function(data){ 
+					//alert("服务器跑丢了......");
+				} 
+							
+			});
+	  		
+	  		
+	  	})
+	  </script>
 		
 	</body>
 </html>

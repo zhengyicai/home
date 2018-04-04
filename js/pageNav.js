@@ -217,7 +217,7 @@ PageNavCreate.prototype.afterClick = function(func){
 				if(data.code=='0000'){
 					for(var i = 0;i<data.data.length;i++){
 						var la = language =="cn"?data.data[i].cntitle:language =="en"?data.data[i].entitle:data.data[i].title;
-						var pro =   '<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6"><a class="pro_pic" href="cpdetail.html"><img src="'+$image_path+data.data[i].img+'"/></a><a href="#" class="pro_tit">'+la+'</a></li>';
+						var pro =   '<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6"><a class="pro_pic" href="cpdetail.html?id='+data.data[i].id+'"><img src="'+$image_path+data.data[i].img+'"/></a><a href="#" class="pro_tit">'+la+'</a></li>';
 						$(".pc_cplist").append(pro);
 					}
 					 var pageNavObj = null;

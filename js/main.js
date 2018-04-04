@@ -2,6 +2,21 @@ var $base_path = 'http://120.78.67.233:8080/web/home/';
 //var $base_path = 'http://localhost:8080/web/home/';
 var $image_path = 'http://120.78.67.233:8080/image/';
 
+
+
+var language =   sessionStorage.getItem("YSlanguage");
+
+//var  language =="cn"?data.data[0].cncontent:language =="en"?data.data[0].encontent:data.data[0].content;
+$(".proDetail").html(language =="cn"?"詳情信息":language =="en"?"Detail":"详情信息");
+$(".proStyle").html(language =="cn"?"類型":language =="en"?"Style":"类型");
+$(".proPrice").html(language =="cn"?"價格":language =="en"?"Price":"价格");
+$(".proSpec").html(language =="cn"?"規格":language =="en"?"Spec":"规格");
+
+$(".messageSubmit").html(language =="cn"?"提交":language =="en"?"Submit":"提交");
+
+
+
+
 //手机导航
 $(".menu_icon").click(function(){
 	if(!$(".menu").is(":hidden")){
@@ -125,7 +140,7 @@ function browserRedirect() {
 
 browserRedirect(); */
 
-function language(data){
+function Language(data){
 	
 	sessionStorage.setItem("YSlanguage",data);
 	location.href="index.html";
@@ -341,6 +356,7 @@ $(function(){
 				
 	});	
 		
+
 	if(language =='cn'){
 		$(".footerAbout").html("關於優速");
 		$(".footerMobile").html("電話");
@@ -353,6 +369,9 @@ $(function(){
 		$(".messageTel").html("電話");
 		$(".messageRemark").html("備註");
 		$(".searchDiv").attr("placeholder","請輸入關鍵字");
+		$(".messageNameTitle").attr("placeholder","請輸入您的姓名...");
+		$(".messageTelTitle").attr("placeholder","請輸入您的電話...");
+		$(".messageRemarkTitle").attr("placeholder","請輸入您的備註...");
 	}else if(language =='en'){
 		$(".footerAbout").html("ABOUT");
 		$(".footerMobile").html("TEL");
@@ -365,6 +384,9 @@ $(function(){
 		$(".messageTel").html("TEL");
 		$(".messageRemark").html("REMARK");
 		$(".searchDiv").attr("placeholder","please input keywords ");
+		$(".messageNameTitle").attr("placeholder","Please input you name...");
+		$(".messageTelTitle").attr("placeholder","Please input you Tel...");
+		$(".messageRemarkTitle").attr("placeholder","Please input you Remark...");
 	}else{
 	
 		$(".footerAbout").html("关于优速");
@@ -378,6 +400,9 @@ $(function(){
 		$(".messageTel").html("电话");
 		$(".messageRemark").html("备注");
 		$(".searchDiv").attr("placeholder","请输入关键字");
+		$(".messageNameTitle").attr("placeholder","请输入您的姓名...");
+		$(".messageTelTitle").attr("placeholder","请输入您的电话...");
+		$(".messageRemarkTitle").attr("placeholder","请输入您的备注...");
 		
 		
 	

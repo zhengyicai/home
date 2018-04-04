@@ -161,9 +161,9 @@
 							<div class="indexBanner1">
 			        			<table style="color: white;">
 			        				<tr>
-			        				<td><a class="navTwoTitle"  onclick="language('zh')" style="background-color: #646464;color: white;">中文简体</a></td>
-		        					<td><a class="navTwoTitle"  onclick="language('cn')" style="background-color: #646464; color: white;">中文繁体</a></td>
-		        					<td><a class="navTwoTitle"  onclick="language('en')" style="background-color: #646464; color: white;">EN</a></td>
+			        				<td><a class="navTwoTitle"  onclick="Language('zh')" style="background-color: #646464;color: white;">中文简体</a></td>
+		        					<td><a class="navTwoTitle"  onclick="Language('cn')" style="background-color: #646464; color: white;">中文繁体</a></td>
+		        					<td><a class="navTwoTitle"  onclick="Language('en')" style="background-color: #646464; color: white;">EN</a></td>
 			        				</tr>
 			        			</table>
 			        		</div>
@@ -179,15 +179,15 @@
 			</div>
 		</div>		
 		<div class="content_bd" style="overflow: hidden;">
-			<img src="images/banner2.jpg" style="height: 100px; width: 100%;">
+			<img src="images/banner2.jpg" style="height: 100px; width: 100%;" id="newsBanDetail1">
 			<div class="page_nav_box" style="width:100%;border-bottom: 1px solid #eee;" >
 				<div class="container" style="height: 60px;">
 					<div class="row">
 						<div class="page_pos col-lg-10  col-sm-8 text-center">
 							<span></span>
-							<a href="#">优速国际</a>
+							<a href="#" class="navNewsList">优速国际</a>
 							&gt;
-							<a href="#" id="aboutDetail">集团新闻</a>
+							<a href="#" id="aboutDetail" >集团新闻</a>
 						</div>
 						<div class="col-lg-2 col-sm-4 page_pos1"  >
 							<ul >
@@ -221,14 +221,14 @@
 								<div class="page_content">
 									<div class="article">
 										<div class="article_hd">
-											<h1>新闻标题</h1>
+											<h1 id="newsDatailTitle"></h1>
 											<h6>
-												<span>浏览次数：123</span>
-												<span>发布日期：2016-02-19</span>
+												<span id="newsDetailAuthor">作者：2016-02-19</span>
+												<span id="newsDetailCreate">发布日期：2016-02-19</span>
 											</h6>
 										</div>
 										
-										 <div>
+										 <div id="newsDetailContent">
 									    	<p>test</p>
 									    	<img src="images/about1.jpg">
 									    	<p>test</p>
@@ -240,14 +240,14 @@
 									        
 									
 									</div>
-									<div class="pagination2 row">
+									<!--<div class="pagination2 row">
 										<div class="prev col-lg-6 col-md-12 col-sm-12 clo-xs-12">
 											<a href="#">上一篇：XXXXXXXXXX</a>
 										</div>
 										<div class="next col-lg-6 col-md-12 col-sm-12 clo-xs-12">
 											<a href="#">上一篇：XXXXXXXXXX</a>
 										</div>
-									</div>
+									</div>-->
 								</div>
 							</div>
 							
@@ -258,9 +258,9 @@
 					</div>	
 					
 					<div class="col-lg-3  col-sm-4" style="padding-top: 15px;"  >
-						<img class="about1"  src="images/about2.jpg"><br/>
-						<img class="about1"   src="images/about3.png"><br/>
-						<img class="about1"  src="images/about3.png"><br/>
+						<img class="about1" id="newsBanDetail2"  src="images/about2.jpg"><br/>
+						<img class="about1" id="newsBanDetail3"   src="images/about3.png"><br/>
+						<img class="about1" id="newsBanDetail4"  src="images/about3.png"><br/>
 						
 					</div>
 				
@@ -554,6 +554,80 @@
 				
 				
 			})
+		</script>
+		<script>
+			(function($){
+				$.getUrlParam = function(name)
+				{
+				var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if (r!=null) return unescape(r[2]); return null;
+				}
+			})(jQuery);
+			$(function(){
+				var language =   sessionStorage.getItem("YSlanguage");
+				$.ajax({
+						type:"get",
+						url:$base_path+"sysBanner/findAll?title=news_ban", 
+			            dataType:"json",
+						success:function(data){ 
+							if(data.code==0000){
+								for(var i = 0 ;i<data.data.length;i++){
+										if(data.data[i].top =='1'){
+											
+											$("#newsBanDetail1").attr("src",$image_path+data.data[i].imageUrl);	
+										
+										}else if(data.data[i].top =='5'){
+											$("#newsBanDetail2").attr("src",$image_path+data.data[i].imageUrl);
+										}else if(data.data[i].top =='6'){
+											$("#newsBanDetail3").attr("src",$image_path+data.data[i].imageUrl);
+										}else if(data.data[i].top =='7'){
+											
+											$("#newsBanDetail4").attr("src",$image_path+data.data[i].imageUrl);
+										}
+										
+										
+								}
+								
+								
+							}
+						}, 
+						error:function(data){ 
+							//alert("服务器跑丢了......");
+						} 
+							
+				});
+				
+				
+				function fmtDate(obj){
+				    var date =  new Date(obj);
+				    var y = 1900+date.getYear();
+				    var m = "0"+(date.getMonth()+1);
+				    var d = "0"+date.getDate();
+				    return y+"-"+m.substring(m.length-2,m.length)+"-"+d.substring(d.length-2,d.length);
+				}
+				$.ajax({
+						type:"get",
+						url:$base_path+"sysArticle/findAll?id="+$.getUrlParam('id'), 
+			            dataType:"json",
+						success:function(data){ 
+							if(data.code==0000){
+								var la = language =="cn"?data.data[0].cntitle:language =="en"?data.data[0].entitle:data.data[0].title;
+								
+								var content = language =="cn"?data.data[0].cncontent:language =="en"?data.data[0].encontent:data.data[0].content;
+								var author = language =="cn"?"作者："+data.data[0].cnauthor:language =="en"?"author："+data.data[0].enauthor:"作者："+data.data[0].author;
+								var time = language =="cn"?"發佈日期："+fmtDate(data.data[0].createTime):language =="en"?"author："+fmtDate(data.data[0].createTime):"发布日期："+fmtDate(data.data[0].createTime);
+								$("#newsDatailTitle").html(la);
+								$("#newsDetailAuthor").html(author);
+								$("#newsDetailCreate").html(time);
+								$("#newsDetailContent").html(content);
+				
+							}
+						}
+				});		
+				
+			})
+			
 		</script>
 	</body>
 </html>
