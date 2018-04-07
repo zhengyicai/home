@@ -185,9 +185,9 @@
 					<div class="row">
 						<div class="page_pos col-lg-10  col-sm-8 text-center">
 							<span></span>
-							<a href="#" class="navNewsList">优速国际</a>
-							&gt;
-							<a href="#" id="aboutDetail" >集团新闻</a>
+							<a href="#" class="navNewsList"><!--优速国际--></a>
+							<!--&gt;-->
+							<!--<a href="#" id="aboutDetail" ></a>-->
 						</div>
 						<div class="col-lg-2 col-sm-4 page_pos1"  >
 							<ul >
@@ -197,9 +197,9 @@
 										        <div class="find_nav_list text-right"  >
 										            <ul >
 										        
-										                <li><a href="newslist.html" class="active" id="aboutOne" >集团新闻</a></li>
-										                <li><a href="newslist.html" id="aboutTwo">地方动态</a></li>
-										                <li><a href="newslist.html" id="aboutThree">媒体报道</a></li>
+										                <li><a href="newslist.html" class="active" id="newsOne" >集团新闻</a></li>
+										                <li><a href="newslist.html" id="newsTwo">地方动态</a></li>
+										                <li><a href="newslist.html" id="newsThree">媒体报道</a></li>
 										                
 										                <li class="sideline"></li>
 										            </ul>
@@ -223,16 +223,16 @@
 										<div class="article_hd">
 											<h1 id="newsDatailTitle"></h1>
 											<h6>
-												<span id="newsDetailAuthor">作者：2016-02-19</span>
-												<span id="newsDetailCreate">发布日期：2016-02-19</span>
+												<span id="newsDetailAuthor"></span>
+												<span id="newsDetailCreate"></span>
 											</h6>
 										</div>
 										
 										 <div id="newsDetailContent">
-									    	<p>test</p>
+									    	<!--<p>test</p>
 									    	<img src="images/about1.jpg">
 									    	<p>test</p>
-									    	<img src="images/about1.jpg">
+									    	<img src="images/about1.jpg">-->
 										</div>
 											
 									           
@@ -302,21 +302,18 @@
 			
 			<div class="container" id="content_mobile_message" >
 					<br/>
-					<h1 style="line-height: 30px; font-size: 18px;">新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题</h1>
+					<h1 style="line-height: 30px; font-size: 18px;" id="newsDatailMbTitle"></h1>
 					<h3 style="line-height: 25px;">
 						
-						<span>2016-02-19</span>
+						<h6>
+							<span id="newsDetailMbAuthor"></span>
+							<span id="newsDetailMbCreate"></span>
+						</h6>
 					</h3>
 					
 					<hr width="100%" style="height: 5px" />
-					 <div>
-					 	<p>公司定位于城市配套服务商，坚持“为普通人盖好房子，盖有人用的房子”，坚持与城市同步发展、与客户同步发展的两条主线。公司核心业务包括住宅开发和物业服务。近年来，在巩固核心业务优势的基础上，围绕城市配套服务商的定位，积极拓展业务版图，进入商业开发和运营、物流仓储、冰雪度假、集中式长租公寓、养老、教育、“轨道+物业”等领域，同时积极参与混合所有制改革。
-
-2017年，深圳地铁集团成为公司基石股东，表示将支持公司混合所有制结构和事业合伙人机制，支持公司城市配套服务商战略，支持公司稳定健康发展。未来公司和深圳地铁集团将充分发挥各自优势，共同推进实施 “轨道+物业”发展战略，全面提升城市配套服务能力，助推城市经济发展。</p>
-				    	<p>test</p>
-				    	<img src="images/about1.jpg">
-				    	<p>test</p>
-				    	<img src="images/about1.jpg">
+					 <div id="newsDetailMbContent">
+					 	
 					</div>
 			
 		</div>	
@@ -504,7 +501,36 @@
 		}
 		</script>
 		<script>
+			
+			(function($){
+				$.getUrlParam = function(name)
+				{
+				var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if (r!=null) return unescape(r[2]); return null;
+				}
+			})(jQuery);
 			$(function(){
+				
+				if($.getUrlParam('show') =='1' || $.getUrlParam('show') =='10'){
+					
+					$("#newsOne").trigger("click");
+					
+				}else if($.getUrlParam('show') =='2' || $.getUrlParam('show') =='20'){
+					
+					$("#newsTwo").trigger("click");
+					
+					
+					/*$(".text1").css("background-color","#f8f8f8");
+					 $("this").css("background-color","#e2e2e2");*/
+				}else if($.getUrlParam('show') =='3' || $.getUrlParam('show') =='30'){
+					
+					$("#newsThree").trigger("click");
+					
+					
+					
+				}
+				
 				
 				$(".date1").html(new Date().toDateString());
 				$("#about2").hide();
@@ -621,6 +647,11 @@
 								$("#newsDetailAuthor").html(author);
 								$("#newsDetailCreate").html(time);
 								$("#newsDetailContent").html(content);
+								
+								$("#newsDatailMbTitle").html(la);
+								$("#newsDetailMbAuthor").html(author);
+								$("#newsDetailMbCreate").html(time);
+								$("#newsDetailMbContent").html(content);
 				
 							}
 						}

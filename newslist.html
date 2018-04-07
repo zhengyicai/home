@@ -243,6 +243,7 @@ a{
 										<table id="new2TableOne">
 											
 										</table>
+										<br/>
 										<div style="width: 100%; background-color: #EEEEEE; height: 55px; line-height: 55px; color: #46B8DA; font-weight: bold; text-align: center;" id="manyOne" class="manyNews">更多</div>
 									</div>
 								</div>	
@@ -274,6 +275,7 @@ a{
 										<table id="new2TableTwo">
 											
 										</table>
+										<br/>
 										<div style="width: 100%; background-color: #EEEEEE; height: 55px; line-height: 55px; color: #46B8DA; font-weight: bold; text-align: center;" class="manyNews" id="manyTwo">更多</div>
 									</div>
 								</div>	
@@ -303,6 +305,7 @@ a{
 										<table id="new2TableThree">
 											
 										</table>
+										<br/>
 										<div style="width: 100%; background-color: #EEEEEE; height: 55px; line-height: 55px; color: #46B8DA; font-weight: bold; text-align: center;" class="manyNews" id="manyThree">更多</div>
 									</div>
 								</div>	
@@ -349,60 +352,11 @@ a{
 		</div>
 		<div class="content_mobile" style="background-color: #e2e2e2; border-top: 2px solid #46B8DA;">
 			<div class="container">
-				
+				<div  id="newsMobile1"></div>
+				<div class="col-xs-12" style="background-color: #46B8DA; height: 55px; margin-top: 10px; line-height: 55px; color: white; font-weight: bold; text-align: center;" id="manymb">更多</div>
 			
-				<div class="newsListMobile col-xs-12" style="background-color: white;margin-top: 10px; height: 90px; ">
-					<a href="newsdetail.html">
-						<br/>
-						<span class="col-xs-10">
-						<p style="font-weight: bold; font-size: 15px;">广州开出全国首张增值电子发票 实现电子发票证全程互通</p>
-						<span style="border: 1px solid #46B8DA; color: #46B8DA;">集团新闻</span>
-						</span>
-						<span class="col-xs-2" style="text-align: right; color: #46B8DA; line-height: 60px; font-size: 25px;">></span>
-					</a>	
-				</div>
-				<div class="newsListMobile col-xs-12" style="background-color: white;margin-top: 10px; height: 90px; ">
-						<br/>
-						<span class="col-xs-10">
-						<p style="font-weight: bold; font-size: 15px;">广州开出全国首张增值电子发票 实现电子发票证全程互通</p>
-						<span style="border: 1px solid #46B8DA; color: #46B8DA;">集团新闻</span>
-						</span>
-						<span class="col-xs-2" style="text-align: right; color: #46B8DA; line-height: 60px; font-size: 25px;">></span>
-				</div>
-				<div class="newsListMobile col-xs-12" style="background-color: white;margin-top: 10px; height: 90px; ">
-						<br/>
-						<span class="col-xs-10">
-						<p style="font-weight: bold; font-size: 15px;">广州开出全国首张增值电子发票 实现电子发票证全程互通</p>
-						<span style="border: 1px solid #46B8DA; color: #46B8DA;">媒体报道</span>
-						</span>
-						<span class="col-xs-2" style="text-align: right; color: #46B8DA; line-height: 60px; font-size: 25px;">></span>
-				</div>
-				<div class="newsListMobile col-xs-12" style="background-color: white;margin-top: 10px; height: 90px; ">
-						<br/>
-						<span class="col-xs-10">
-						<p style="font-weight: bold; font-size: 15px;">广州开出全国首张增值电子发票 实现电子发票证全程互通</p>
-						<span style="border: 1px solid #46B8DA; color: #46B8DA;">集团新闻</span>
-						</span>
-						<span class="col-xs-2" style="text-align: right; color: #46B8DA; line-height: 60px; font-size: 25px;">></span>
-				</div>
-				<div class="newsListMobile col-xs-12" style="background-color: white;margin-top: 10px; height: 90px; ">
-						<br/>
-						<span class="col-xs-10">
-						<p style="font-weight: bold; font-size: 15px;">广州开出全国首张增值电子发票 实现电子发票证全程互通</p>
-						<span style="border: 1px solid #46B8DA; color: #46B8DA;">集团新闻</span>
-						</span>
-						<span class="col-xs-2" style="text-align: right; color: #46B8DA; line-height: 60px; font-size: 25px;">></span>
-				</div>
-				<div class="newsListMobile col-xs-12" style="background-color: white;margin-top: 10px; height: 90px; ">
-						<br/>
-						<span class="col-xs-10">
-						<p style="font-weight: bold; font-size: 15px;">广州开出全国首张增值电子发票 实现电子发票证全程互通</p>
-						<span style="border: 1px solid #46B8DA; color: #46B8DA;">集团新闻</span>
-						</span>
-						<span class="col-xs-2" style="text-align: right; color: #46B8DA; line-height: 60px; font-size: 25px;">></span>
-				</div>
 				
-				<div class="col-xs-12" style="background-color: #46B8DA; height: 55px; margin-top: 10px; line-height: 55px; color: white; font-weight: bold; text-align: center;" id="many">更多</div>
+				
 			</div>
 			
 			
@@ -586,6 +540,17 @@ a{
 		}
 		</script>
 		<script>
+			(function($){
+			$.getUrlParam = function(name)
+			{
+			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r!=null) return unescape(r[2]); return null;
+			}
+			})(jQuery);
+			
+			
+			
 			$(function(){
 				var language =   sessionStorage.getItem("YSlanguage");
 				//日期格式化
@@ -596,6 +561,42 @@ a{
 				    var d = "0"+date.getDate();
 				    return '<h2 style="font-size: 40px; font-weight: bold;">'+d.substring(d.length-2,d.length)+'</h2><span style="font-size: 12px;color: #646464;">'+y+'-'+m.substring(m.length-2,m.length)+'</span>';
 				}
+				
+				
+				if($.getUrlParam('show') =='1'){
+					$("#aboutShow1").show();
+					$("#aboutShow2").hide();
+					$("#aboutShow3").hide();
+					$("#aboutDetail").html($(this).text());  
+					
+					$("#about1").show();
+					$("#about2").hide();
+					$("#newsOne").trigger("click");
+					
+				}else if($.getUrlParam('show') =='2'){
+					$("#aboutShow1").hide();
+					$("#aboutShow2").show();
+					$("#aboutShow3").hide();
+					$("#aboutDetail").html($(this).text());
+					
+					$("#about1").show();
+					$("#about2").hide();
+					$("#newsTwo").trigger("click");
+					/*$(".text1").css("background-color","#f8f8f8");
+					 $("this").css("background-color","#e2e2e2");*/
+				}else if($.getUrlParam('show') =='3'){
+					$("#aboutShow1").hide();
+					$("#aboutShow2").hide();
+					$("#aboutShow3").show();
+					
+					
+					
+					
+					$("#aboutDetail").html($(this).text());
+					$("#newsThree").trigger("click");
+					
+				}
+				
 				
 				
 				$(".date1").html(new Date().toDateString());
@@ -698,6 +699,10 @@ a{
 				
 				var count = 0; 
 				var page = 4;  //控制每次点击显示多少页
+				
+				var countmb =6; //手机第一次显示条数
+				var pagemb = 6; //手机端每次显示条数
+				var arrayList2  = new Array();
 				$("#manyOne").click(function(){
 					//1显示多少条数据
 					for(var i = count ;i<count+page;i++){
@@ -754,7 +759,7 @@ a{
 								var count3 = 0;
 								for(var i = 0;i<data.data.length;i++){
 									var la = language =="cn"?data.data[i].cntitle:language =="en"?data.data[i].entitle:data.data[i].title;
-									var content = language =="cn"?data.data[i].cncontent:language =="en"?data.data[i].encontent:data.data[i].content;
+									var content = language =="cn"?data.data[i].cncontent.substr(0,200):language =="en"?data.data[i].encontent.substr(0,400):data.data[i].content.substr(0,200);
 									var title = '<span>'+fmtDate1(data.data[i].createTime)+'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>'+la.substr(0,30)+'... </span><br/>';
 									
 									if(data.data[i].genre=='10'){
@@ -764,7 +769,7 @@ a{
 											$(".date1").html(new Date(data.data[i].createTime).toDateString());
 											$("#NewsHrefOne").attr("href","newsdetail.html?id="+data.data[i].id);
 										}else if(data.data[i].top != '0'){
-												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content.substr(0,200)+'<br></p></a></td></tr><tr></tr>';
+												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'&show=10"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content+'<br></p></a></td></tr><tr></tr>';
 												if(count1<3){
 										   			$("#new2TableOne").html($("#new2TableOne").html()+rows);	
 												}
@@ -780,7 +785,7 @@ a{
 											$(".newsTwoMessage").html(content.substr(0,150)+"...");
 											$(".date1Two").html(new Date(data.data[i].createTime).toDateString());
 										}else{
-												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content.substr(0,200)+'<br></p></a></td></tr><tr></tr>';
+												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'&show=20"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content+'<br></p></a></td></tr><tr></tr>';
 												if(count2<3){
 										   			$("#new2TableTwo").html($("#new2TableTwo").html()+rows);	
 												}
@@ -794,7 +799,7 @@ a{
 											$(".newsThreeMessage").html(content.substr(0,150)+"...");
 											$(".date1Three").html(new Date(data.data[i].createTime).toDateString());
 										}else{
-												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content.substr(0,200)+'<br></p></a></td></tr><tr></tr>';
+												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'&show=30"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content+'<br></p></a></td></tr><tr></tr>';
 												if(count3<3){
 										   			$("#new2TableThree").html($("#new2TableThree").html()+rows);	
 												}
@@ -802,6 +807,15 @@ a{
 												rowsThreeAll.push(rows);
 										}
 									}
+									
+									//手机模式
+									var tt = data.data[i].genre =="10"?"集团新闻":data.data[i].genre =="20"?"地方动态":"媒体报道";
+									
+									var titlemb =  '<div class="newsListMobile col-xs-12" style="background-color: white;margin-top: 10px; height: 90px; "><a href="newsdetail.html?id='+data.data[i].id+'"><br/><span class="col-xs-10"><p style="font-weight: bold; font-size: 15px;">'+data.data[i].title+'</p><span style="border: 1px solid #46B8DA; color: #46B8DA;">'+tt+'</span></span><span class="col-xs-2" style="text-align: right; color: #46B8DA; line-height: 60px; font-size: 25px;">></span></a></div>';
+									if(i<countmb){
+										$("#newsMobile1").append(titlemb);
+									}
+									arrayList2.push(titlemb);
 									
 									
 								}
@@ -813,6 +827,20 @@ a{
 						} 
 							
 				});
+				
+				$("#manymb").click(function(){
+				
+				for(var i = countmb;i<countmb+pagemb;i++){
+					//if(count+page<=arrayList1.length){
+						$("#newsMobile1").append(arrayList2[i]);
+						
+					//}
+					
+					
+				}
+				countmb+=pagemb;
+				
+			})
 				
 				
 				

@@ -227,16 +227,16 @@
 													<div data-toggle="distpicker">
 														        <div class="form-group" style="width: 150px; margin-right:10px;float: left;">
 														          <label class="sr-only" for="province1">Province</label>
-														          <select class="form-control" id="province1"></select>
+														          <select class="form-control" id="province2"></select>
 														        </div>
 														        <div class="form-group " style="width: 150px;margin-right:10px;float: left;">
 														          <label class="sr-only" for="city1">City</label>
-														          <select class="form-control" id="city1"></select>
+														          <select class="form-control" id="city2"></select>
 														        </div>
 														        
 														        <div class="form-group "style="width: 150px;float:left;">
 														          <label class="sr-only" for="district1">District</label>
-														          <select class="form-control" id="district1"></select>
+														          <select class="form-control" id="district2"></select>
 														        </div>
 														        <div style="clear:both"></div>
 														      </div>
@@ -328,7 +328,7 @@
 									姓名<span>*</span>:
 								</label>
 								<div class="controls">
-									<input type="text" class="form-control messageNameTitle" id="username1" placeholder="请输入您的姓名..." />
+									<input type="text" class="form-control messageNameTitle" id="username2" placeholder="请输入您的姓名..." />
 									<div class="tip" id="username-tip"></div>
 								</div>
 							</div>
@@ -337,7 +337,7 @@
 									电话<span>*</span>：
 								</div>
 								<div class="controls">
-									<input type="text" class="form-control messageTelTitle" id="userphone1" placeholder="请输入您的电话..." />
+									<input type="text" class="form-control messageTelTitle" id="userphone2" placeholder="请输入您的电话..." />
 									<div class="tip" id="userphone-tip"></div>
 								</div>
 							</div>
@@ -346,12 +346,12 @@
 									备注：
 								</div>
 								<div class="controls">
-									<textarea type="text" class="form-control beizhu-control" id="userebeizhu1" placeholder="请输入您的备注..." ></textarea>
+									<textarea type="text" class="form-control beizhu-control" id="userebeizhu2" placeholder="请输入您的备注..." ></textarea>
 									<div class="tip" id="userebeizhu-tip"></div>
 								</div>
 							</div> 					
 							<div class="form-group">
-								<button type="button" class="submint_btn">提交</button>
+								<button type="button" class="submint_btn" id="submitMb">提交</button>
 							</div>
 						</form>
 					</div>
@@ -462,6 +462,7 @@
 	  			
 	  			}
 	  			
+	  			
 	  			if($("#username").val()==null || $("#username").val()=="" ){
 	  				alert("姓名不能为空");
 	  				return;
@@ -490,6 +491,64 @@
 		            contentType:"application/json",
 		            
 		            data:JSON.stringify(per),
+					success:function(data){ 
+						if(data.code==0000){
+							alert(data.message);
+							
+						}
+					}, 
+					error:function(data){ 
+						//alert("服务器跑丢了......");
+					} 
+							
+				});
+	  			
+	  		})
+	  		
+	  		
+	  		$("#submitMb").click(function(){
+	  			
+	  			var per1 = {
+	  				province:$("#province1").val(),
+	  				city:$("#city1").val(),
+	  				country:$("#district1").val(),
+	  				userId:$("#username2").val(),
+	  				title:$("#userphone2").val(),
+	  				content:$("#userebeizhu2").val(),
+	  				remark:""
+	  			
+	  			}
+	  			
+	  			if($("#username2").val()==null || $("#username2").val()=="" ){
+	  				alert("姓名不能为空");
+	  				return;
+	  			}
+	  			
+	  			if($("#userphone2").val()==null || $("#userphone2").val()=="" ){
+	  				alert("电话不能为空");
+	  				return;
+	  			}
+	  			if($("#userebeizhu2").val()==null || $("#userebeizhu2").val()=="" ){
+	  				alert("备注不能为空");
+	  				return;
+	  			}
+	  		
+	  			
+	  			/*$.post($base_path+"message/add",test,function(data){
+	  				
+	  				
+	  			})*/
+	  			
+	  			
+	  			
+	  		
+	  			$.ajax({
+					type:"post",
+					url:$base_path+"message/add", 
+		            dataType:"json",
+		            contentType:"application/json",
+		            
+		            data:JSON.stringify(per1),
 					success:function(data){ 
 						if(data.code==0000){
 							alert(data.message);

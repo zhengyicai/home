@@ -212,8 +212,8 @@
 					<div class="row">					
 						<ul class="product_list">
 							<li class="pro_item col-lg-6 col-md-6 col-sm-6 col-xs-6">
-								<span><b style="font-size: 18px; color: #646464" id="indexArtTitle">杭钢集团与万科集团正式签约 资产包合作落定</b></span>
-								<div style="margin-top: 30px;" id="indexArtContent">3月2日下午，杭钢集团与万科集团在杭州举行资产包合作签约仪式。此次双方合作的资源包含8个项目，分布在杭州、嘉兴、台州、马鞍山、诸暨共5个城市。会议由浙江万科南都房地产有限公司副总经理周广主持，杭钢集团董事、总会计师汤民强...</div>
+								<span><b style="font-size: 18px; color: #646464" id="indexArtTitle"><!--杭钢集团与万科集团正式签约 资产包合作落定--></b></span>
+								<div style="margin-top: 30px;" id="indexArtContent"><!--3月2日下午，杭钢集团与万科集团在杭州举行资产包合作签约仪式。此次双方合作的资源包含8个项目，分布在杭州、嘉兴、台州、马鞍山、诸暨共5个城市。会议由浙江万科南都房地产有限公司副总经理周广主持，杭钢集团董事、总会计师汤民强...--></div>
 							</li>
 							<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-4  tabslist">
 								
@@ -250,9 +250,9 @@
 									    </div>
 							</li>
 							<li class="pro_item col-lg-2 col-md-2 col-sm-2 col-xs-2" style="text-align: left;margin-left: -10px;">
-								<span style="font-size: 15px;"><b style="color: #000000;" id="gupiaotitle">万科A000002</b></span>
+								<span style="font-size: 15px;"><b style="color: #000000;" id="gupiaotitle"><!--万科A000002--></b></span>
 								<div style="font-size: 35px;color: #398439;"><b id="price">32.01</b><b style="font-size: 20px;">RMB</b></div>
-								<span style="font-size: 8px;" id="gupiaoremark">截至 2018-03-09 16:30:03</span>
+								<span style="font-size: 8px;" id="gupiaoremark"><!--截至 2018-03-09 16:30:03--></span>
 							</li>
 							
 						</ul>
@@ -289,13 +289,13 @@
 			
 			<div id="slideBoxMobile" class="slideBox"  >
 				<div class="bd">
-					<ul  >
-						<li>
+					<ul  class="banner_imagemb"   >
+						<!--<li>
 							<a class="pic" href="#" style="height: 250px;"><img style="height: 250px;"  src="images/banner2.jpg" /></a>
 						</li>
 						<li>
 							<a class="pic" href="#"><img style="height: 250px;"  src="images/banner3.jpg" /></a>
-						</li>
+						</li>-->
 					</ul>
 				</div>
 				<span class="prev hidden-xs hidden-sm"></span>
@@ -307,9 +307,9 @@
 			</div>
 			<div class="entries container">
 				<div class="top anim-active" id="anim">
-                    <a class="link-1" href="about.html" style="margin: 9px;line-height: 32px;"><span class="shadow" style="transform: scale(1, 1); opacity: 0;"></span><span>团队介绍</span></a>
-                    <a class="link-2" href="" style="margin: 9px; line-height: 32px;"><span class="shadow" style="transform: scale(1, 1); opacity: 0;"></span><span>投诉建议</span></a>
-                    <a class="link-3" href="" style="margin: 9px; line-height: 32px;"><span class="shadow" style="transform: scale(1, 1); opacity: 0;"></span><span>关注万科</span></a>
+                    <a class="link-1" href="about.html?show=2" style="margin: 9px;line-height: 32px;"><span class="shadow" style="transform: scale(1, 1); opacity: 0;"></span><span>团队介绍</span></a>
+                    <a class="link-2" href="message.html" style="margin: 9px; line-height: 32px;"><span class="shadow" style="transform: scale(1, 1); opacity: 0;"></span><span>投诉建议</span></a>
+                    <a class="link-3" href="about.html?show=3" style="margin: 9px; line-height: 32px;"><span class="shadow" style="transform: scale(1, 1); opacity: 0;"></span><span>关注万科</span></a>
                     <a class="link-4" href="" style="margin: 9px; line-height: 32px;"><span class="shadow" style="transform: scale(1, 1); opacity: 0;"></span><span>廉政举报</span></a>
                 </div>
                
@@ -317,7 +317,7 @@
 			</div>
 			<br/>
 			<div class="mobileTitle" ><span class="col-xs-9">消息披露</span><span >></span></div>
-			<div class="mobileTitle" ><span class="col-xs-9">新闻中心</span><span>></span></div>
+			<div class="mobileTitle" ><a href="newslist.html"><span class="col-xs-9">新闻中心</span><span>></span></a></div>
 			<div class="mobileTitle" ><span class="col-xs-9">志愿者报名</span><span>></span></div>
 			
 			
@@ -364,7 +364,7 @@
 						</ul>
 						<p class="copyr">
 							<a href="http://www.miitbeian.gov.cn">
-								<i class="footerBackUp">Copyright © 公司版权所有鲁ICP备13009425号</i> 
+								<i class="footerBackUp"></i> 
 							</a>
 						</p>
 					</div>
@@ -512,14 +512,17 @@
 				//获取幻灯片
 				$.ajax({
 				type:"get",
-				url:$base_path+"sysBanner/findAll?title=banner", 
+				url:$base_path+"sysBanner/findAll?title=index_banner", 
 	            dataType:"json",
 				success:function(data){ 
 					if(data.code==0000){
 						for(var i = 0 ;i<data.data.length;i++){
 							var banner = '<li><a class="pic" target="_blank" href="'+data.data[i].href+'"><img src="'+$image_path+data.data[i].imageUrl+'" /></a></li>';  
+							var bannermb =  '<li><a class="pic" href="'+data.data[i].href+'" style="height: 250px;"><img style="height: 250px;"  src="'+$image_path+data.data[i].imageUrl+'" /></a></li>';
 							$(".banner_image").html($(".banner_image").html()+banner);
 							$(".banner_image_count").html($(".banner_image_count").html()+"<li></li>");
+							
+							$(".banner_imagemb").append(bannermb);
 						}
 						
 
@@ -570,7 +573,7 @@
 				//获取广告
 				$.ajax({
 						type:"get",
-						url:$base_path+"sysBanner/findAll?title=index_ban", 
+						url:$base_path+"sysBanner/findAll?title=index_icon", 
 			            dataType:"json",
 						success:function(data){ 
 							if(data.code==0000){
@@ -628,12 +631,23 @@
 								for(var i = 0;i<data.data.length;i++){
 									var la = language =="cn"?data.data[i].cntitle:language =="en"?data.data[i].entitle:data.data[i].title;
 									
-									var title = '<span>'+fmtDate(data.data[i].createTime)+'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>'+la.substr(0,15)+'... </span><br/>';
+									var title = '<a href="newsdetail.html?id='+data.data[i].id+'&show='+data.data[i].genre+'"><span>'+fmtDate(data.data[i].createTime)+'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>'+la.substr(0,15)+'... </span></a><br/>';
 									if(data.data[i].genre == '10'){
 										if(data.data[i].top =='0'){
-											var content = language =="cn"?data.data[i].cncontent:language =="en"?data.data[i].encontent:data.data[i].content;		
+											 var titleId = data.data[i].id;
+											var content = language =="cn"?data.data[i].cncontent.substr(0,100):language =="en"?data.data[i].encontent.substr(0,200):data.data[i].content.substr(0,100);		
 											$("#indexArtTitle").html(la);
-											$("#indexArtContent").html(content.substr(0,100));
+											$("#indexArtContent").html(content);
+											
+											$("#indexArtTitle").click(function(){
+												
+												location.href = 'newsdetail.html?id='+titleId;
+											});
+											
+											$("#indexArtContent").click(function(){
+												location.href = 'newsdetail.html?id='+titleId;
+											});
+											
 										}else{
 											$("#slider1Div1").html($("#slider1Div1").html()+title);	
 										}

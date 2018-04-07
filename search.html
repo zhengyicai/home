@@ -80,7 +80,9 @@
 #aboutShow1 ul li{
 	margin-bottom:20px;
 }
-
+ a{
+ 	color: #46B8DA;
+ }
 
 </style>
 	</head>
@@ -190,7 +192,7 @@
 					<div class="row">
 						<div class="page_pos col-lg-10  col-sm-8 text-center">
 							<span></span>
-							<a href="#">搜索结果页</a>
+							<a href="#" class="searchTitle">搜索结果页</a>
 							
 							
 						</div>
@@ -228,50 +230,16 @@
 					
 				
 				</div>
-				<div style="text-align: right;">
+				<div style="text-align: right;" class="searchPageCount">
 					找到关于搜索0条记录
 				</div>
 				
 				<div>
 					<table id="new2Table">
-											<tr style="">
-												
-												<td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;">
-													<br/>
-													
-													<p style="font-weight: bold; font-size: 18px;">test</p>
-													<p>1951年出生于广西。1968年参军，1973年转业。转业后就职于郑州铁路水电段。1978年毕业于兰州铁道学院给排水专业，本科学历。毕业后，先后供职于广州铁路局、广东省外经贸委、深圳市特区发展公司。1984年组建万科前身深圳现代科教仪器展销中心，任总经理。<br><br></p>
-												</td>
-											</tr>
-											<tr>
-												
-												<td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;">
-													<br/>
-													
-													<p style="font-weight: bold; font-size: 18px;">test</p>
-													<p>1951年出生于广西。1968年参军，1973年转业。转业后就职于郑州铁路水电段。1978年毕业于兰州铁道学院给排水专业，本科学历。毕业后，先后供职于广州铁路局、广东省外经贸委、深圳市特区发展公司。1984年组建万科前身深圳现代科教仪器展销中心，任总经理。<br><br></p>
-												</td>
-											</tr>
-											<tr>
-												
-												<td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;">
-													<br/>
-													
-													<p style="font-weight: bold; font-size: 18px;">test</p>
-													<p>1951年出生于广西。1968年参军，1973年转业。转业后就职于郑州铁路水电段。1978年毕业于兰州铁道学院给排水专业，本科学历。毕业后，先后供职于广州铁路局、广东省外经贸委、深圳市特区发展公司。1984年组建万科前身深圳现代科教仪器展销中心，任总经理。<br><br></p>
-												</td>
-											</tr>
-											<tr>
-												
-												<td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;">
-													<br/>
-													
-													<p style="font-weight: bold; font-size: 20px;">test</p>
-													<p>1951年出生于广西。1968年参军，1973年转业。转业后就职于郑州铁路水电段。1978年毕业于兰州铁道学院给排水专业，本科学历。毕业后，先后供职于广州铁路局、广东省外经贸委、深圳市特区发展公司。1984年组建万科前身深圳现代科教仪器展销中心，任总经理。<br><br></p>
-												</td>
-											</tr>
+											 
+											
 					</table>
-					<div style="width: 100%; background-color: #EEEEEE; height: 55px; line-height: 55px; color: #46B8DA; font-weight: bold; text-align: center;" id="many">更多</div>
+					<div style="width: 100%; background-color: #EEEEEE; height: 55px; line-height: 55px; color: #46B8DA; font-weight: bold; text-align: center;" id="many" class="manyNews">更多</div>
 	
 				</div>
 					
@@ -348,9 +316,69 @@
 	</body>
 	<script>
 		$(function(){
+			var language =   sessionStorage.getItem("YSlanguage");
+			//接收url传值
+			 var searchUrl =window.location.href;  
+		     var searchData =searchUrl.split("=");        //截取 url中的“=”,获得“=”后面的参数  
+		     var  searchText =decodeURI(searchData[1]);   //decodeURI解码  
+       			//$(".keyword1").val(searchText);
+			//alert(searchText);
+			
+			$(".searchTitle").append('"'+searchText+'"');
+			
+			var arrayList1  = new Array();
+			var count = 5; //第一次顯示的數據
+			var page = 5;//每页显示多少行数据
+			$.ajax({
+						type:"get",
+						url:$base_path+"sysArticle/findAll?title="+searchText, 
+			            dataType:"json",
+						success:function(data){ 
+							if(data.code==0000){
+								/*alert(data);*/
+								$(".searchPageCount").html(language =="cn"?"找到關於搜索"+data.page.totalCount+"條記錄":language =="en"?"Find "+data.page.totalCount+" records about search":"找到关于搜索"+data.page.totalCoun+"条记录");
+								for(var i = 0 ;i<data.data.length;i++){
+									var la = language =="cn"?data.data[i].cntitle:language =="en"?data.data[i].entitle:data.data[i].title;
+									var content = language =="cn"?data.data[i].cncontent.substr(0,200):language =="en"?data.data[i].encontent.substr(0,300):data.data[i].content.substr(0,200);
+									var title= '<tr><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><a href="newsdetail.html?id='+data.data[i].id+'"><p style="font-weight: bold; font-size: 18px;">'+la+'</p><p>'+content+'</p></a></td></tr>';
+									if(i<count){
+										$("#new2Table").append(title);	
+									}
+									arrayList1.push(title);
+								}
+								
+								
+								
+							}
+						}, 
+						error:function(data){ 
+							//alert("服务器跑丢了......");
+						} 
+							
+				});
+			
+			
 			$("#new2Table tr").click(function(){
 					location.href="newsdetail.html";
-				})
+			})
+			
+			$("#many").click(function(){
+				
+				for(var i = count;i<count+page;i++){
+					//if(count+page<=arrayList1.length){
+						$("#new2Table").append(arrayList1[i]);
+						
+					//}
+					
+					
+				}
+				count+=page;
+				
+			})
+			
+			
+			
+			
 			
 		})
 	</script>

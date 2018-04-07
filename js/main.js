@@ -13,7 +13,8 @@ $(".proPrice").html(language =="cn"?"價格":language =="en"?"Price":"价格");
 $(".proSpec").html(language =="cn"?"規格":language =="en"?"Spec":"规格");
 
 $(".messageSubmit").html(language =="cn"?"提交":language =="en"?"Submit":"提交");
-
+$(".searchTitle").html(language =="cn"?"搜索結果頁":language =="en"?"Search results page":"搜索结果页");
+$(".manyNews").html(language =="cn"?"更多":language =="en"?"Many":"更多");
 
 
 
@@ -92,8 +93,12 @@ $('.searchDiv').bind('keypress',function(event){
          
           
          if(event.keyCode == 13)      
-         {  
-            location.href='search.html';  
+         {	
+         	if($(this).val() =="" || $(this).val().trim().length ==0 || $(this).val() ==null || $(this).val() =="null"  ){
+         		alert("搜索内容不能为空");
+         		return ;
+         	}
+            location.href=decodeURI('search.html?title='+$(this).val());  
          }  
 
      });
@@ -170,6 +175,13 @@ $(function(){
 						}else if(data.data[i].paraName =='email'){
 						
 							$(".navEmail").html(title);
+						}else if(data.data[i].paraName =='chairman'){
+							$(".aboutTwoText1").html(title);
+							
+							
+						}else if(data.data[i].paraName =='manage'){
+							$(".aboutTwoText2").html(title);
+							
 						}
 					}
 					
@@ -220,7 +232,7 @@ $(function(){
 							}
 						}
 						//关于
-						else if(data.data[i].href == 'about.html'){
+						else if(data.data[i].href.indexOf('about.html') >=0 ){
 							if(data.data[i].level =='10'){
 								$(".navAbout").attr("href",data.data[i].href);
 								if(language =='cn'){
@@ -238,10 +250,13 @@ $(function(){
 									
 									$("#aboutOne").html(title);
 									$("#aboutDetail").html(title);
+									$("#aboutTitleOneMb").html(title);
+									
 									
 								}
 								if(data.data[i].id=="cf62dfb4bba842b287982d01beabeb52"){
 									$("#aboutTwo").html(title);
+									$("#aboutTitleTwoMb").html(title);
 								}
 								if(data.data[i].id=="30449cac5f69437bb73517f6f06bad5a"){
 									$("#aboutThree").html(title);
@@ -252,7 +267,7 @@ $(function(){
 							
 						}
 						//新闻
-						else if(data.data[i].href == 'newslist.html' ){
+						else if(data.data[i].href.indexOf('newslist.html' )>=0){
 							
 							if(data.data[i].level =='10'){
 								$(".navNewsList").attr("href",data.data[i].href);

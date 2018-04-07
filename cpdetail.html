@@ -237,7 +237,7 @@
 							</div>
 							<div class="col-lg-5">
 								<h2 class="pro_name" id="productName">
-									田园布艺沙发组合客厅
+									<!--田园布艺沙发组合客厅-->
 								</h2>
 								<ul class="pro_attr">
 									<li>
@@ -252,10 +252,10 @@
 									</li>
 								
 									<li class="case_tag" id="para">									
-										<span>高档/厚实</span>
+										<!--<span>高档/厚实</span>
 										<span>雪尼尔面料</span>
 										<span>高弹海棉</span>
-										<span>经典轻奢设计</span>
+										<span>经典轻奢设计</span>-->
 									</li>
 								</ul>
 							</div>
@@ -300,29 +300,29 @@
 								<div class="page_content">
 						<div class="row">
 							<div class="product_pic col-lg-7">
-								<img src="upload/pic02.jpg" />
+								<img src="upload/pic02.jpg" id="productMbImg" />
 							</div>
 							<div class="col-lg-5">
-								<h2 class="pro_name" >
-									田园布艺沙发组合客厅
+								<h2 class="pro_name" id="productMbName" >
+								
 								</h2>
 								<ul class="pro_attr">
 									<li >
-										类型：<span >田园风</span>
+										类型：<span id="productMbStyle">田园风</span>
 									</li>
 									<li >
-										规格：<span>田园风</span>
+										规格：<span id="standardMb">田园风</span>
 									</li>
 									<li class="case_price">
 										价格：
-										<span >12000.00</span>
+										<span id="priceMb" >12000.00</span>
 									</li>
 									
-									<li class="case_tag" >									
-										<span>高档/厚实</span>
+									<li class="case_tag"  id="paraMb">									
+										<!--<span>高档/厚实</span>
 										<span>雪尼尔面料</span>
 										<span>高弹海棉</span>
-										<span>经典轻奢设计</span>
+										<span>经典轻奢设计</span>-->
 									</li>
 								</ul>
 							</div>
@@ -331,7 +331,7 @@
 							<div class="product_infor_hd">
 								详情信息
 							</div>
-							<div class="product_infor_bd" >
+							<div class="product_infor_bd"  id="contentMb">
 								产品详细信息
 							</div>
 						</div>
@@ -460,6 +460,13 @@
 								$("#standard").html(data.data[0].standard);
 								$("#productStyle").html(data.data[0].style);
 								$("#content").html(content);
+								
+								$("#productMbImg").attr("src",$image_path+data.data[0].img);
+								$("#productMbName").html(la);
+								$("#paraMb").html(data.data[0].para);
+								$("#standardMb").html(data.data[0].standard);
+								$("#productMbStyle").html(data.data[0].style);
+								$("#contentMb").html(content);
 								
 								
 							//}
