@@ -94,7 +94,7 @@
 			<span class="menu_icon"></span>
 			<ul class="menu">
 				<li ><a href="index.html" class="navIndex">首页</a></li>
-	        	<li><a href="about.html" class="navAbout">优速国际</a></li>
+	        	<li><a href="about.html" class="navAbout">优术国际</a></li>
 	        	<li><a href="newslist.html" class="navNewsList" >新闻中心</a></li>
 	        	<li><a href="cplist.html" class="navCplist">产品中心</a></li>
 	        	
@@ -118,7 +118,7 @@
 
 			        		
 			        	</li>
-			        	<li class="navHover"><a href="about.html" class="navAbout" >优速国际</a>
+			        	<li class="navHover"><a href="about.html" class="navAbout" >优术国际</a>
 			        		<div class="indexBanner1">
 			        			<table>
 			        				<tr class="navAboutChild">
@@ -242,7 +242,10 @@
 							</ul>
 							
 						</ul>
-						<img src="images/map.png" style="width: 100%;" id="contact2" >
+						<div class="left">
+							<div id="container1" class="container" style="width: 832px; height: 300px;"></div>
+						</div>
+						<!--<img src="images/map.png" style="width: 100%;" id="contact2" >-->
 										
 						</div>
 					</div>
@@ -270,7 +273,10 @@
 		<div class="content_mobile" style="border-top: 2px solid #46B8DA;">
 			<div class="container">
 						<br/>
-						<img src="images/map.png" style="width: 100%;" id="contactMb">
+						<div class="left">
+							<div id="container2" class="container1" style="width: 100%; height: 300px;"></div>
+						</div>
+						<!--<img src="images/map.png" style="width: 100%;" id="contactMb">-->
 						<br/>
 						<div id="content_line">
 							<br/>
@@ -311,7 +317,7 @@
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 						
 						<ul class="footer_contact col-lg-9 col-md-9 col-sm-9 hidden-xs">
-							<li><span style="font-size: 16px; color: #CCCCCC;" class="footerAbout">关于优速</span></li>
+							<li><span style="font-size: 16px; color: #CCCCCC;" class="footerAbout">关于优术</span></li>
 							<li><i class="footerMobile">电话</i>：<i class="navTel">400-000-0000</i></li>
 							<li><i class="footerTime">服务时间</i>：<i class="navTime">周一到周五早8:00到晚5:00</i></li>
 							<li><i class="footerEmail">邮箱</i>：<i class="navEmail">xxx@163.com</i></li>
@@ -322,7 +328,7 @@
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 						
 						<!--<ul class="footer_contact col-lg-9 col-md-9 col-sm-9 hidden-xs">
-							<li><span style="font-size: 16px; color: #CCCCCC;">优速服务</span></li>
+							<li><span style="font-size: 16px; color: #CCCCCC;">优术服务</span></li>
 							<li>电话：<i>400-000-0000</i></li>
 							<li>服务时间：周一到周五早8:00到晚5:00</li>
 							<li>邮箱：xxx@163.com</li>
@@ -336,7 +342,7 @@
 							<!--<li><a href="#">新闻中心</a></li>
 							<li><a href="#">产品中心</a></li>
 							<li><a href="#">意见反馈</a></li>
-							<li><a href="#">关于优速</a></li>-->
+							<li><a href="#">关于优术</a></li>-->
 						</ul>
 						<p class="copyr">
 							<a href="http://www.miitbeian.gov.cn">
@@ -347,7 +353,9 @@
 				</div>
 			</div>
 		</div>
+		<script src="http://api.map.baidu.com/api?v=2.0&ak=A1LU7iHS0avqQwPLAxbhKn0UYSQCuRVH"></script>
 		<script type="text/javascript" src="js/jquery-1.11.3.js" ></script>
+		<script src="js/jquery.baiduMap.min.js"></script>
 		<script type="text/javascript" src="js/main.js" ></script>
 		<script type="text/javascript" src="js/TouchSlide.1.1.js" ></script>
 		<script src="js/distpicker.data.js"></script>
@@ -395,6 +403,111 @@
 	  		
 	  	})
 	  </script>
+	  <script type="text/javascript">
+			new BaiduMap({
+				id: "container1",
+				title: {
+					text: "深圳福田区田面城市大厦",
+					className: "title"
+				},
+				content: {
+					className: "content",
+					text: ["地址：深南中路4026号", "电话：(010)65131892"]
+				},
+				point: {
+					lng: "114.08289",
+					lat: "22.547072"
+				}
+			});
+			
+			new BaiduMap({
+				id: "container2",
+				title: {
+					text: "深圳福田区田面城市大厦",
+					className: "title"
+				},
+				content: {
+					className: "content",
+					text: ["地址：深南中路4026号", "电话：(010)65131892"]
+				},
+				point: {
+					lng: "114.08289",
+					lat: "22.547072"
+				}
+			});
+			
+
+			$.ajax({
+			type:"get",
+			url:$base_path+"para/findAll?groupType=map", 
+            dataType:"json",
+			success:function(data){ 
+				if(data.code==0000){
+					var addressDetail = '';
+					var x_index = '';
+					var y_index = '';
+					var address = '';
+					var tel = '';
+					
+					for(var i = 0 ;i<data.data.length;i++){
+						
+						if(data.data[i].paraName =='addressDetail'){
+							addressDetail =  data.data[i].paraValue;
+						}else if(data.data[i].paraName =='x-index'){
+							x_index = data.data[i].paraValue;
+						}else if(data.data[i].paraName =='y-index'){
+							y_index = data.data[i].paraValue;
+						}else if(data.data[i].paraName =='address'){
+							address = data.data[i].paraValue;
+						}else if(data.data[i].paraName =='tel'){
+							tel = data.data[i].paraValue;
+						}
+					}
+					
+					new BaiduMap({
+						id: "container1",
+						title: {
+							text: addressDetail,
+							className: "title"
+						},
+						content: {
+							className: "content",
+							text: ["地址："+address+"", "电话："+tel+""]
+						},
+						point: {
+							lng: x_index,
+							lat: y_index
+						}
+					});
+					
+					new BaiduMap({
+						id: "container2",
+						title: {
+							text: addressDetail,
+							className: "title"
+						},
+						content: {
+							className: "content",
+							text: ["地址："+address+"", "电话："+tel+""]
+						},
+						point: {
+							lng: x_index,
+							lat: y_index
+						}
+					});
+					
+					
+					
+				}
+			}, 
+			error:function(data){ 
+				//alert("服务器跑丢了......");
+			} 
+				
+	});
+			
+			
+		</script>
 		
 	</body>
 </html>

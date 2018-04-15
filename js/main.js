@@ -373,7 +373,7 @@ $(function(){
 		
 
 	if(language =='cn'){
-		$(".footerAbout").html("關於優速");
+		$(".footerAbout").html("關於優術");
 		$(".footerMobile").html("電話");
 		$(".footerTime").html("服務時間");
 		$(".footerEmail").html("郵箱");
@@ -404,7 +404,7 @@ $(function(){
 		$(".messageRemarkTitle").attr("placeholder","Please input you Remark...");
 	}else{
 	
-		$(".footerAbout").html("关于优速");
+		$(".footerAbout").html("关于优术");
 		$(".footerMobile").html("电话");
 		$(".footerTime").html("服务时间");
 		$(".footerEmail").html("邮箱");

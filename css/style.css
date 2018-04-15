@@ -6,6 +6,7 @@
 	background-color: #FFFFFF;
 }
 
+
 /*全局字体*/
 span,div {
 	color:#666666;
@@ -1268,3 +1269,7 @@ span,div {
 #content_line ul li{
 	line-height: 25px;
 }  
+
+.navAddress{
+	width: 100%;
+}
