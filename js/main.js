@@ -244,7 +244,13 @@ $(function(){
 								}		
 							}else if(data.data[i].level =='30'){
 								var title =  language =="cn"?data.data[i].cntitle:language =="en"?data.data[i].entitle:data.data[i].title;
-								$(".navAboutChild").html($(".navAboutChild").html()+'<td><a class="navTwoTitle" href="'+data.data[i].href+'" style="background-color: #646464;">'+title+'</a></td>' );
+								
+								//屏蔽
+								if(data.data[i].id=="30449cac5f69437bb73517f6f06bad5a"){
+									//$("#aboutThree").html(title);
+								}else{
+									$(".navAboutChild").html($(".navAboutChild").html()+'<td><a class="navTwoTitle" href="'+data.data[i].href+'" style="background-color: #646464;">'+title+'</a></td>' );
+								}
 								//关于分类
 								if(data.data[i].id=="a7052e3ee26e480e84568560d2d3cfa9"){
 									
@@ -258,6 +264,7 @@ $(function(){
 									$("#aboutTwo").html(title);
 									$("#aboutTitleTwoMb").html(title);
 								}
+								
 								if(data.data[i].id=="30449cac5f69437bb73517f6f06bad5a"){
 									$("#aboutThree").html(title);
 								}

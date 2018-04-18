@@ -769,7 +769,7 @@ a{
 											$(".date1").html(new Date(data.data[i].createTime).toDateString());
 											$("#NewsHrefOne").attr("href","newsdetail.html?id="+data.data[i].id);
 										}else if(data.data[i].top != '0'){
-												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'&show=10"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content+'<br></p></a></td></tr><tr></tr>';
+												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'&show=10"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content+'<br></p><br/></a></td></tr><tr></tr>';
 												if(count1<3){
 										   			$("#new2TableOne").html($("#new2TableOne").html()+rows);	
 												}
@@ -785,7 +785,7 @@ a{
 											$(".newsTwoMessage").html(content.substr(0,150)+"...");
 											$(".date1Two").html(new Date(data.data[i].createTime).toDateString());
 										}else{
-												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'&show=20"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content+'<br></p></a></td></tr><tr></tr>';
+												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'&show=20"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content+'<br></p><br/></a></td></tr><tr></tr>';
 												if(count2<3){
 										   			$("#new2TableTwo").html($("#new2TableTwo").html()+rows);	
 												}
@@ -799,7 +799,7 @@ a{
 											$(".newsThreeMessage").html(content.substr(0,150)+"...");
 											$(".date1Three").html(new Date(data.data[i].createTime).toDateString());
 										}else{
-												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'&show=30"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content+'<br></p></a></td></tr><tr></tr>';
+												var rows= '<tr style="border-top: 2px solid #f1eff1;"><td><div class="date2" style="padding-left: 10px;padding-top: 10px; background-color:#EEEEEE; color: #46B8DA;height: 90px; width: 90px;">'+fmtDate1(data.data[i].createTime)+'</div></td><td   align="left" valign="top" style="padding-left: 20px; font-size: 8px;"><br/><a href="newsdetail.html?id='+data.data[i].id+'&show=30"><p style="font-weight: bold; font-size: 18px;">'+la.substr(0,30)+'</p><p>'+content+'<br></p><br/></a></td></tr><tr></tr>';
 												if(count3<3){
 										   			$("#new2TableThree").html($("#new2TableThree").html()+rows);	
 												}
