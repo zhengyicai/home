@@ -168,7 +168,7 @@ $(function(){
 							
 						}else if(data.data[i].paraName =='address'){
 							$(".navAddress").html(title);
-						}else if(data.data[i].paraName =='Time'){
+						}else if(data.data[i].paraName =='HQ_address'){
 							$(".navTime").html(title);
 						}else if(data.data[i].paraName =='tel'){
 							$(".navTel").html(title);
@@ -382,7 +382,7 @@ $(function(){
 	if(language =='cn'){
 		$(".footerAbout").html("關於優術");
 		$(".footerMobile").html("電話");
-		$(".footerTime").html("服務時間");
+		$(".footerTime").html("總部地址");
 		$(".footerEmail").html("郵箱");
 		$(".footerAddress").html("地址");
 		
@@ -397,7 +397,7 @@ $(function(){
 	}else if(language =='en'){
 		$(".footerAbout").html("ABOUT");
 		$(".footerMobile").html("TEL");
-		$(".footerTime").html("TIME");
+		$(".footerTime").html("HQ-ADDRESS");
 		$(".footerEmail").html("EMAIL");
 		$(".footerAddress").html("ADDRESS");
 		
@@ -413,7 +413,7 @@ $(function(){
 	
 		$(".footerAbout").html("关于优术");
 		$(".footerMobile").html("电话");
-		$(".footerTime").html("服务时间");
+		$(".footerTime").html("总部地址");
 		$(".footerEmail").html("邮箱");
 		$(".footerAddress").html("地址");
 		

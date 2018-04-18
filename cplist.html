@@ -82,6 +82,15 @@
 	margin-bottom:20px;
 }
 
+.content_mobile .col-sm-12{
+	padding: 0px 0px 0px 0px;
+	
+}
+
+#cplistMobile11 img{
+	height: 200px;
+}
+
 
 </style>
 	</head>
@@ -304,9 +313,9 @@
 			
 		</div>
 		
-		<div class="content_mobile" style="border-top: 2px solid #46B8DA;">
-			<div class="container">
-							<ul class="mod_list row mod_list_2 pc_cplist">
+		<div class="content_mobile" style="border-top: 2px solid #46B8DA; width: 100%;">
+			<div>
+							<ul class="mod_list row mod_list_2 pc_cplist col-sm-12" id="cplistMobile11">
 								<!--<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6">
 									<a class="pro_pic" href="cpdetail.html">
 										<img src="upload/pic02.jpg"/>
@@ -368,18 +377,19 @@
 		<div class="footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						
 						<ul class="footer_contact col-lg-10 col-md-10 col-sm-10 hidden-xs">
 							<li><span style="font-size: 16px; color: #CCCCCC;" class="footerAbout">关于优术</span></li>
 							<li><i class="footerMobile">电话</i>：<i class="navTel">400-000-0000</i></li>
-							<li><i class="footerTime">服务时间</i>：<i class="navTime">周一到周五早8:00到晚5:00</i></li>
+							
 							<li><i class="footerEmail">邮箱</i>：<i class="navEmail">xxx@163.com</i></li>
 							<li><i class="footerAddress">地址</i>：<i class="navAddress">公司地址</i></li>
+							<li><i class="footerTime">总部地址</i>：<i class="navTime"></i></li>
 						</ul>
 						
 					</div>
-					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
 						
 						<!--<ul class="footer_contact col-lg-9 col-md-9 col-sm-9 hidden-xs">
 							<li><span style="font-size: 16px; color: #CCCCCC;">优术服务</span></li>
@@ -490,8 +500,10 @@
 							if(data.code==0000){
 								for(var i = 0;i<data.data.length;i++){
 									var la = language =="cn"?data.data[i].cntitle:language =="en"?data.data[i].entitle:data.data[i].title;
-									var pro =   '<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-6"><a class="pro_pic" href="cpdetail.html?id='+data.data[i].id+'"><img src="'+$image_path+data.data[i].img+'"/></a><a href="#" class="pro_tit">'+la+'</a></li>';
-									$(".pc_cplist").append(pro);
+									var pro =   '<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-12"><a class="pro_pic" href="cpdetail.html?id='+data.data[i].id+'"><img src="'+$image_path+data.data[i].img+'"/></a><a href="#" class="pro_tit">'+la+'</a></li>';
+									var pro1 =   '<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-12"><a class="pro_pic" href="cpdetail.html?id='+data.data[i].id+'"><img src="'+$image_path+data.data[i].img+'"/></a><a href="#" class="pro_tit">'+la+'</a></li>';
+									var pro2 =   '<li class="pro_item col-lg-4 col-md-4 col-sm-4 col-xs-12"><a class="pro_pic" href="cpdetail.html?id='+data.data[i].id+'"><img src="'+$image_path+data.data[i].img+'"/></a><a href="#" class="pro_tit">'+la+'</a></li>';
+									$(".pc_cplist").append(pro+pro2+pro1);
 								}
 								//$("#pageCount")
 							//分页	
